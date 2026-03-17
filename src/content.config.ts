@@ -4,7 +4,7 @@ const blog = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    date: z.date(),
+    date: z.coerce.date(),
     description: z.string().optional(),
     excerpt: z.string().optional(),
     heroImage: z.string().optional(),
@@ -12,7 +12,7 @@ const blog = defineCollection({
   }),
 });
 
-
-
 export const collections = { blog };
+
+export type BlogPost = (typeof blog)['_type'];
 

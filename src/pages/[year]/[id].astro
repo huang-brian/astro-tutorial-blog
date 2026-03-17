@@ -8,17 +8,16 @@ export async function getStaticPaths() {
 
   return posts.map((post) => {
     const year = post.data.date.getFullYear().toString();
-    // post.slug includes the subfolder: "2026/my-first-post"
-    // We strip the leading "2026/" to get just the slug
-    const slug = post.slug.replace(/^\d{4}\//, '');
-
+    // In Astro v6, id includes the path: "2026/my-first-post"
+    // We derive the slug by removing the year folder prefix
+    const slug = post.id.replace(/^\d{4}\//, '');
 
     // check for folder year mismatch
     // throw warn if mismatch found
-    const folderYear = post.slug.split('/')[0];
+    const folderYear = post.id.split('/')[0];
     const dataYear = post.data.date.getFullYear().toString();
     if (folderYear !== dataYear) {
-    console.warn(`Year mismatch in ${post.slug}`);
+      console.warn(`Year mismatch in ${post.id}`);
     }
 
     return {
