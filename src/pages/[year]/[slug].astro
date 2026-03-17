@@ -1,0 +1,37 @@
+---
+// claude convo https://claude.ai/chat/3c6d8574-f947-4cdd-b4cb-2ced9884b726
+import { getCollection } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return posts.map((post) => {
+    const year = post.data.date.getFullYear().toString();
+    // post.slug includes the subfolder: "2026/my-first-post"
+    // We strip the leading "2026/" to get just the slug
+    const slug = post.slug.replace(/^\d{4}\//, '');
+
+
+    // check for folder year mismatch
+    // throw warn if mismatch found
+    const folderYear = post.slug.split('/')[0];
+    const dataYear = post.data.date.getFullYear().toString();
+    if (folderYear !== dataYear) {
+    console.warn(`Year mismatch in ${post.slug}`);
+    }
+
+    return {
+      params: { year, slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost title={post.data.title} date={post.data.date} description={post.data.description} heroImage={post.data.heroImage}>
+  <Content />
+</BlogPost>
