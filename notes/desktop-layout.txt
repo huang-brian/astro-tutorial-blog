@@ -1,0 +1,33 @@
+{desktop layout}
+>static navigation header/bar on left (navigation bar scrolls away with header)
+[Home](link to home)                                        <left align title. left edge aligns with left edge of photos below>
+[About](about page)                                         # Brian Below {#website title}
+[2026](link to page with articles published in 2026)        musings on life. (short description of blog here)
+
+
+
+{blog posts should be sorted by newest first on top}
+---------------- {#horizontal line}
+<spans 1/3 width>       |  <this sections spans 2/3 width>
+## Blog title 1         |
+                        |    blog post 1 header photo
+short description here  |
+
+---------------- {#horizontal line}
+## Blog title 2         |
+                        |    blog post 2 header photo
+short description here  |
+
+---------------- {#horizontal line}
+## Blog title 3         |
+                        |    when no photo available,
+short description here  |    insert short excerpt from blog post
+
+---------------- {#horizontal line}
+{footer section is divided into three columns}
+<left align this column below>      <center align this col below>               <right align this column below>
+Brian Below                         [subscribe button]                          Published in Santa Cruz, California
+Say hi: hey@brianbelow.net          Receive new posts in your email.            Built with [Astro](https://astro.build)
+                                                                                Hosted on _____
+
+3-17-26 version
