@@ -1,8 +1,8 @@
 ---
 // src/layouts/BlogPost.astro
-// Usage: used by src/pages/[year]/[slug].astro
-//
-// Props come from your post's frontmatter via the content collection.
+// Extends BaseLayout. No site title in header — just nav + post header.
+
+import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
   title: string;
@@ -13,7 +13,6 @@ export interface Props {
 
 const { title, date, description, heroImage } = Astro.props;
 
-// Format date as "March 17, 2026"
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
@@ -21,358 +20,206 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} — Brian Below</title>
-    <meta name="description" content={description} />
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/egh3idp.css">
-    <style>
-      /* ── Design tokens (identical to HomeLayout) ─────────────── */
-      :root {
-        --bg:         #EFE6EB;
-        --text:       #380D25;
-        --text-muted: #6b4057;
-        --accent:     #380D25;
-        --rule:       #c9aab9;
-        --font:       adobe-garamond-pro, garamond-premier-pro-display, Georgia, serif;
-        --max-width:  860px;
-        --h-pad:      3rem;
-      }
+<BaseLayout title={`${title} — Brian Below`} description={description}>
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg:         #380D25;
-          --text:       #f0e2ea;
-          --text-muted: #c9a0b8;
-          --accent:     #EFE6EB;
-          --rule:       #5e2040;
-        }
-      }
+  <style>
+    /* ── Minimal nav header — no site title ─────────────────── */
+    .site-header {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 3rem 0 2.5rem;
+    }
 
-      /* ── Reset ───────────────────────────────────────────────── */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
 
-      html, body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font);
-        font-feature-settings: "liga" 1;
-        font-size: 18px;
-        line-height: 1.6;
-        transition: background 0.3s ease, color 0.3s ease;
-      }
+    .nav a {
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: transparent;
+      transition: color 0.2s, text-decoration-color 0.2s;
+      opacity: 1; /* use colour shift, not opacity fade */
+    }
 
-      a { color: inherit; text-decoration: none; }
+    .nav a:hover {
+      color: var(--text-muted);
+      text-decoration-color: var(--text-muted);
+      opacity: 1;
+    }
 
-      /* ── Page wrapper ────────────────────────────────────────── */
-      .page {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        padding: 0 var(--h-pad);
-      }
+    /* ── Post header ─────────────────────────────────────────── */
+    .post-header {
+      max-width: 70ch;
+      margin: 0 auto;            /* centre horizontally */
+      padding: 2.5rem 0 1.75rem;
+      border-top: 1px solid var(--rule);
+    }
 
-      /* ── Site header — identical to HomeLayout ───────────────── */
-      .site-header {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 2rem;
-        padding: 3rem 0 2.5rem;
-      }
+    .post-title {
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
 
-      .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        padding-top: 0.2rem;
-      }
+    .post-date {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
 
-      .nav a {
-        font-size: 1rem;
-        color: var(--text);
-        transition: color 0.2s;
-      }
+    /* ── Hero image ──────────────────────────────────────────── */
+    .hero {
+      max-width: 70ch;
+      margin: 0 auto 2rem;       /* centre horizontally */
+    }
 
-      .nav a:hover { color: var(--text-muted); }
+    .hero img {
+      width: 100%;
+      display: block;
+      filter: saturate(0.9);
+    }
 
-      .site-title-block h1 {
-        font-size: 3rem;
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        line-height: 1.05;
-        margin-bottom: 0.3rem;
-      }
+    /* ── Prose body ──────────────────────────────────────────── */
+    .prose {
+      max-width: 70ch;
+      margin: 0 auto;            /* centre horizontally — this was the fix */
+      padding-bottom: 3rem;
+    }
 
-      .site-title-block .tagline {
-        font-size: 1rem;
-        font-style: italic;
-        color: var(--text-muted);
-      }
+    /* Paragraphs */
+    .prose :global(p) {
+      margin-bottom: 1.4em;
+    }
 
-      /* ── Post header ─────────────────────────────────────────── */
-      .post-header {
-        max-width: 70ch;
-        padding: 2.5rem 0 1.75rem;
-        border-top: 1px solid var(--rule);
-      }
+    /* Headings inside posts */
+    .prose :global(h2) {
+      font-size: 1.45rem;
+      font-weight: 500;
+      margin: 2.2em 0 0.6em;
+      line-height: 1.25;
+    }
 
-      .post-title {
-        font-size: 2.2rem;
-        font-weight: 500;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        margin-bottom: 0.6rem;
-      }
+    .prose :global(h3) {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 1.8em 0 0.5em;
+    }
 
-      .post-date {
-        font-size: 0.9rem;
-        font-style: italic;
-        color: var(--text-muted);
-      }
+    /* Blockquotes */
+    .prose :global(blockquote) {
+      border-left: 2px solid var(--rule);
+      margin: 1.8em 0;
+      padding: 0.2em 0 0.2em 1.4em;
+      color: var(--text-muted);
+      font-style: italic;
+    }
 
-      /* ── Hero image ──────────────────────────────────────────── */
-      .hero {
-        max-width: 70ch;
-        margin-bottom: 2rem;
-      }
+    /* Inline code */
+    .prose :global(code) {
+      font-size: 0.88em;
+      background: color-mix(in srgb, var(--rule) 30%, transparent);
+      padding: 0.1em 0.35em;
+    }
 
-      .hero img {
-        width: 100%;
-        display: block;
-        filter: saturate(0.9);
-      }
+    /* Code blocks */
+    .prose :global(pre) {
+      background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+      border: 1px solid var(--rule);
+      padding: 1.1em 1.4em;
+      overflow-x: auto;
+      margin: 1.8em 0;
+      font-size: 0.88em;
+      line-height: 1.6;
+    }
 
-      /* ── Prose body ──────────────────────────────────────────── */
-      .prose {
-        max-width: 70ch;
-        padding-bottom: 3rem;
-      }
+    .prose :global(pre code) {
+      background: none;
+      padding: 0;
+    }
 
-      /* Paragraphs */
-      .prose :global(p) {
-        margin-bottom: 1.4em;
-      }
+    /* Links inside prose — underline style, not opacity fade */
+    .prose :global(a) {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--rule);
+      transition: text-decoration-color 0.2s;
+      opacity: 1;
+    }
 
-      /* Headings inside posts */
-      .prose :global(h2) {
-        font-size: 1.45rem;
-        font-weight: 500;
-        margin: 2.2em 0 0.6em;
-        line-height: 1.25;
-      }
+    .prose :global(a:hover) {
+      text-decoration-color: var(--text);
+      opacity: 1;
+    }
 
-      .prose :global(h3) {
-        font-size: 1.2rem;
-        font-weight: 500;
-        margin: 1.8em 0 0.5em;
-      }
+    /* Lists */
+    .prose :global(ul),
+    .prose :global(ol) {
+      padding-left: 1.5em;
+      margin-bottom: 1.4em;
+    }
 
-      /* Blockquotes */
-      .prose :global(blockquote) {
-        border-left: 2px solid var(--rule);
-        margin: 1.8em 0;
-        padding: 0.2em 0 0.2em 1.4em;
-        color: var(--text-muted);
-        font-style: italic;
-      }
+    .prose :global(li) {
+      margin-bottom: 0.4em;
+    }
 
-      /* Inline code */
-      .prose :global(code) {
-        font-size: 0.88em;
-        background: color-mix(in srgb, var(--rule) 30%, transparent);
-        padding: 0.1em 0.35em;
-      }
+    /* Horizontal rule */
+    .prose :global(hr) {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
 
-      /* Code blocks */
-      .prose :global(pre) {
-        background: color-mix(in srgb, var(--accent) 10%, var(--bg));
-        border: 1px solid var(--rule);
-        padding: 1.1em 1.4em;
-        overflow-x: auto;
-        margin: 1.8em 0;
-        font-size: 0.88em;
-        line-height: 1.6;
-      }
+    /* Images inside prose */
+    .prose :global(img) {
+      max-width: 100%;
+      display: block;
+      margin: 2em 0;
+      filter: saturate(0.9);
+    }
 
-      .prose :global(pre code) {
-        background: none;
-        padding: 0;
-      }
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-header { padding-top: 2rem; }
 
-      /* Links inside prose */
-      .prose :global(a) {
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        text-decoration-color: var(--rule);
-        transition: text-decoration-color 0.2s;
-      }
+      .post-title { font-size: 1.7rem; }
 
-      .prose :global(a:hover) {
-        text-decoration-color: var(--text);
-      }
+      .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+    }
+  </style>
 
-      /* Lists */
-      .prose :global(ul),
-      .prose :global(ol) {
-        padding-left: 1.5em;
-        margin-bottom: 1.4em;
-      }
+  <!-- ── Nav only — no site title ── -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/2026">2026</a>
+    </nav>
+  </header>
 
-      .prose :global(li) {
-        margin-bottom: 0.4em;
-      }
+  <!-- ── Post header ── -->
+  <div class="post-header">
+    <h1 class="post-title">{title}</h1>
+    <p class="post-date">{formattedDate}</p>
+  </div>
 
-      /* Horizontal rule */
-      .prose :global(hr) {
-        border: none;
-        border-top: 1px solid var(--rule);
-        margin: 2.5em 0;
-      }
+  <!-- ── Optional hero image ── -->
+  {heroImage && (
+    <div class="hero">
+      <img src={heroImage} alt={title} />
+    </div>
+  )}
 
-      /* Images inside prose */
-      .prose :global(img) {
-        max-width: 100%;
-        display: block;
-        margin: 2em 0;
-        filter: saturate(0.9);
-      }
+  <!-- ── Post body ── -->
+  <article class="prose">
+    <slot />
+  </article>
 
-      /* ── Footer — identical to HomeLayout ───────────────────── */
-      footer {
-        margin-top: 0;
-        padding: 2rem 0 3rem;
-        border-top: 1px solid var(--rule);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
-        font-size: 0.875rem;
-        color: var(--text-muted);
-      }
-
-      .footer-left  { text-align: left; }
-      .footer-mid   { text-align: center; }
-      .footer-right { text-align: right; }
-
-      .footer-left .name {
-        font-weight: 500;
-        color: var(--text);
-        display: block;
-        margin-bottom: 0.2rem;
-      }
-
-      .footer-left a {
-        color: var(--text-muted);
-        transition: color 0.2s;
-      }
-      .footer-left a:hover { color: var(--text); }
-
-      .subscribe-btn {
-        display: inline-block;
-        padding: 0.4rem 1.25rem;
-        border: 1px solid var(--text);
-        border-radius: 0;
-        color: var(--text);
-        background: transparent;
-        font-family: var(--font);
-        font-size: 0.95rem;
-        cursor: pointer;
-        margin-bottom: 0.4rem;
-        transition: background 0.2s, color 0.2s, border-color 0.2s;
-      }
-
-      .subscribe-btn:hover {
-        background: var(--accent);
-        color: var(--bg);
-        border-color: var(--accent);
-      }
-
-      .subscribe-note {
-        display: block;
-        font-size: 0.8rem;
-        font-style: italic;
-      }
-
-      /* ── Mobile ──────────────────────────────────────────────── */
-      @media (max-width: 640px) {
-        :root { --h-pad: 1.25rem; }
-
-        .site-header {
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
-          padding-top: 2rem;
-        }
-
-        .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
-
-        .site-title-block h1 { font-size: 2.2rem; }
-
-        .post-title { font-size: 1.7rem; }
-
-        footer {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .footer-mid, .footer-right { text-align: left; }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="page">
-
-      <!-- ── Site header (same as homepage) ── -->
-      <header class="site-header">
-        <nav class="nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/2026">2026</a>
-          <!-- Add more year links as needed -->
-        </nav>
-
-        <div class="site-title-block">
-          <a href="/"><h1>Brian Below</h1></a>
-          <p class="tagline">musings on life.</p>
-        </div>
-      </header>
-
-      <!-- ── Post header ── -->
-      <div class="post-header">
-        <h1 class="post-title">{title}</h1>
-        <p class="post-date">{formattedDate}</p>
-      </div>
-
-      <!-- ── Optional hero image ── -->
-      {heroImage && (
-        <div class="hero">
-          <img src={heroImage} alt={title} />
-        </div>
-      )}
-
-      <!-- ── Post body ── -->
-      <article class="prose">
-        <slot />
-      </article>
-
-      <!-- ── Footer (same as homepage) ── -->
-      <footer>
-        <div class="footer-left">
-          <span class="name">Brian Below</span>
-          <a href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
-        </div>
-
-        <div class="footer-mid">
-          <button class="subscribe-btn">Subscribe</button>
-          <span class="subscribe-note">Receive new posts in your email.</span>
-        </div>
-
-        <div class="footer-right">
-          <span>Published in Santa Cruz, California</span>
-        </div>
-      </footer>
-
-    </div><!-- /.page -->
-  </body>
-</html>
+</BaseLayout>

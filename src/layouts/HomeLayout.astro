@@ -1,7 +1,8 @@
 ---
 // src/layouts/HomeLayout.astro
-// Usage: wrap your index.astro content in this layout.
-// Props: pass `posts` array from your content collection.
+// Extends BaseLayout. Adds the two-column header with site title + tagline.
+
+import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
   posts?: {
@@ -18,351 +19,208 @@ export interface Props {
 
 const { posts = [] } = Astro.props;
 
-// Sort newest first
 const sortedPosts = [...posts].sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brian Below</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-      rel="stylesheet"
-    /> -->
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/egh3idp.css">
-    <style>
-      /* ── Design tokens ───────────────────────────────────────── */
-      :root {
-        --bg:         #EFE6EB;
-        --text:       #380D25;
-        --text-muted: #6b4057;
-        --accent:     #380D25;
-        --rule:       #c9aab9;
-        --font:       adobe-garamond-pro, garamond-premier-pro-display, Georgia, serif;
-        --max-width:  860px;
-        --h-pad:      3rem;
-      }
+<BaseLayout title="Brian Below">
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg:         #380D25;
-          --text:       #f0e2ea;
-          --text-muted: #c9a0b8;
-          --accent:     #EFE6EB;
-          --rule:       #5e2040;
-        }
-      }
+  <style>
+    /* ── Nav + site title header ─────────────────────────────── */
+    .site-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 3rem 0 2.5rem;
+    }
 
-      /* ── Reset ───────────────────────────────────────────────── */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding-top: 0.2rem;
+    }
 
-      html, body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font);
-        font-feature-settings: "liga" 1;
-        font-size: 18px;
-        line-height: 1.6;
-        transition: background 0.3s ease, color 0.3s ease;
-      }
+    .nav a {
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: transparent;
+      transition: color 0.2s, text-decoration-color 0.2s;
+      opacity: 1;
+    }
 
-      a { color: inherit; text-decoration: none; }
+    .nav a:hover {
+      color: var(--text-muted);
+      text-decoration-color: var(--text-muted);
+      opacity: 1;
+    }
 
-      /* ── Page wrapper ────────────────────────────────────────── */
-      .page {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        padding: 0 var(--h-pad);
-      }
+    .site-title-block h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 0.3rem;
+    }
 
-      /* ── Header: nav left column, title+tagline right column ─── */
+    .site-title-block .tagline {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* ── Posts list ──────────────────────────────────────────── */
+    .posts {
+      margin-top: 0.5rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .post-link {
+      display: block;
+      color: inherit;
+      /* Override global opacity fade — child elements handle their own transitions */
+      opacity: 1;
+    }
+
+    .post-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeUp 0.45s ease forwards;
+    }
+
+    .post-row:nth-child(2)  { animation-delay: 0.04s; }
+    .post-row:nth-child(4)  { animation-delay: 0.09s; }
+    .post-row:nth-child(6)  { animation-delay: 0.14s; }
+    .post-row:nth-child(8)  { animation-delay: 0.19s; }
+    .post-row:nth-child(10) { animation-delay: 0.24s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .post-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .post-link:hover .post-title {
+      color: var(--text-muted);
+    }
+
+    .post-description {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .post-right {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .post-right img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.85);
+      transition: filter 0.3s;
+    }
+
+    .post-link:hover .post-right img {
+      filter: saturate(1.05);
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
       .site-header {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 2rem;
-        padding: 3rem 0 2.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-top: 2rem;
       }
 
-      .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        padding-top: 0.2rem;
-      }
+      .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
 
-      .nav a {
-        font-size: 1rem;
-        color: var(--text);
-        transition: color 0.2s;
-      }
+      .site-title-block h1 { font-size: 2.2rem; }
 
-      .nav a:hover {
-        color: var(--text-muted);
-      }
+      .post-row { grid-template-columns: 1fr; }
+    }
+  </style>
 
-      .site-title-block h1 {
-        font-size: 3rem;
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        line-height: 1.05;
-        margin-bottom: 0.3rem;
-      }
+  <!-- ── Header with site title ── -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/2026">2026</a>
+    </nav>
 
-      .site-title-block .tagline {
-        font-size: 1rem;
-        font-style: italic;
-        color: var(--text-muted);
-      }
+    <div class="site-title-block">
+      <h1>Brian Below</h1>
+      <p class="tagline">musings on life.</p>
+    </div>
+  </header>
 
-      /* ── Posts list ──────────────────────────────────────────── */
-      .posts {
-        margin-top: 0.5rem;
-      }
-
-      .divider {
-        height: 1px;
-        background: var(--rule);
-      }
-
-      .post-link {
-        display: block;
-        color: inherit;
-      }
-
-      .post-row {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 2rem;
-        padding: 2rem 0;
-        opacity: 0;
-        transform: translateY(8px);
-        animation: fadeUp 0.45s ease forwards;
-      }
-
-      .post-row:nth-child(2)  { animation-delay: 0.04s; }
-      .post-row:nth-child(4)  { animation-delay: 0.09s; }
-      .post-row:nth-child(6)  { animation-delay: 0.14s; }
-      .post-row:nth-child(8)  { animation-delay: 0.19s; }
-      .post-row:nth-child(10) { animation-delay: 0.24s; }
-
-      @keyframes fadeUp {
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .post-left {
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-
-      .post-title {
-        font-size: 1.3rem;
-        font-weight: 500;
-        line-height: 1.3;
-        transition: color 0.2s;
-      }
-
-      .post-link:hover .post-title {
-        color: var(--text-muted);
-      }
-
-      .post-description {
-        font-size: 0.9rem;
-        font-style: italic;
-        color: var(--text-muted);
-        line-height: 1.5;
-      }
-
-      .post-right {
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .post-right img {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-        display: block;
-        filter: saturate(0.85);
-        transition: filter 0.3s;
-      }
-
-      .post-link:hover .post-right img {
-        filter: saturate(1.05);
-      }
-
-      .post-excerpt {
-        font-size: 0.9rem;
-        font-style: italic;
-        color: var(--text-muted);
-        line-height: 1.65;
-        display: -webkit-box;
-        -webkit-line-clamp: 5;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      /* ── Footer ──────────────────────────────────────────────── */
-      footer {
-        margin-top: 3rem;
-        padding: 2rem 0 3rem;
-        border-top: 1px solid var(--rule);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
-        font-size: 0.875rem;
-        color: var(--text-muted);
-      }
-
-      .footer-left  { text-align: left; }
-      .footer-mid   { text-align: center; }
-      .footer-right { text-align: right; }
-
-      .footer-left .name {
-        font-weight: 500;
-        color: var(--text);
-        display: block;
-        margin-bottom: 0.2rem;
-      }
-
-      .footer-left a {
-        color: var(--text-muted);
-        transition: color 0.2s;
-      }
-      .footer-left a:hover { color: var(--text); }
-
-      /* Subscribe — sharp corners, full color invert on hover */
-      .subscribe-btn {
-        display: inline-block;
-        padding: 0.4rem 1.25rem;
-        border: 1px solid var(--text);
-        border-radius: 0;
-        color: var(--text);
-        background: transparent;
-        font-family: var(--font);
-        font-size: 0.95rem;
-        cursor: pointer;
-        margin-bottom: 0.4rem;
-        transition: background 0.2s, color 0.2s, border-color 0.2s;
-      }
-
-      .subscribe-btn:hover {
-        background: var(--accent);
-        color: var(--bg);
-        border-color: var(--accent);
-      }
-
-      .subscribe-note {
-        display: block;
-        font-size: 0.8rem;
-        font-style: italic;
-      }
-
-      /* ── Mobile ──────────────────────────────────────────────── */
-      @media (max-width: 640px) {
-        :root { --h-pad: 1.25rem; }
-
-        .site-header {
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
-          padding-top: 2rem;
-        }
-
-        .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
-
-        .site-title-block h1 { font-size: 2.2rem; }
-
-        .post-row { grid-template-columns: 1fr; }
-
-        footer {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .footer-mid, .footer-right { text-align: left; }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="page">
-
-      <!-- ── Header with inline nav ── -->
-      <header class="site-header">
-
-        <nav class="nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/2026">2026</a>
-          <!-- Add more year links as needed -->
-        </nav>
-
-        <div class="site-title-block">
-          <h1>Brian Below</h1>
-          <p class="tagline">musings on life.</p>
-        </div>
-
-      </header>
-
-      <!-- ── Post list ── -->
-      <section class="posts">
-
-        {sortedPosts.map((post) => (
-          <>
-            <div class="divider" />
-            <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}`}>
-              <article class="post-row">
-
-                <div class="post-left">
-                  <h2 class="post-title">{post.data.title}</h2>
-                  {post.data.description && (
-                    <p class="post-description">{post.data.description}</p>
-                  )}
-                </div>
-
-                <div class="post-right">
-                  {post.data.heroImage ? (
-                    <img src={post.data.heroImage} alt={post.data.title} />
-                  ) : (
-                    <p class="post-excerpt">
-                      {post.data.excerpt ?? post.data.description ?? ""}
-                    </p>
-                  )}
-                </div>
-
-              </article>
-            </a>
-          </>
-        ))}
-
+  <!-- ── Post list ── -->
+  <section class="posts">
+    {sortedPosts.map((post) => (
+      <>
         <div class="divider" />
+        <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}`}>
+          <article class="post-row">
+            <div class="post-left">
+              <h2 class="post-title">{post.data.title}</h2>
+              {post.data.description && (
+                <p class="post-description">{post.data.description}</p>
+              )}
+            </div>
 
-      </section>
+            <div class="post-right">
+              {post.data.heroImage ? (
+                <img src={post.data.heroImage} alt={post.data.title} />
+              ) : (
+                <p class="post-excerpt">
+                  {post.data.excerpt ?? post.data.description ?? ""}
+                </p>
+              )}
+            </div>
+          </article>
+        </a>
+      </>
+    ))}
 
-      <!-- ── Footer ── -->
-      <footer>
-        <div class="footer-left">
-          <span class="name">Brian Below</span>
-          <a href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
-        </div>
+    <div class="divider" />
+  </section>
 
-        <div class="footer-mid">
-          <button class="subscribe-btn">Subscribe</button>
-          <span class="subscribe-note">Receive new posts in your email.</span>
-        </div>
-
-        <div class="footer-right">
-          <span>Published in Santa Cruz, California</span>
-        </div>
-      </footer>
-
-    </div><!-- /.page -->
-  </body>
-</html>
+</BaseLayout>
