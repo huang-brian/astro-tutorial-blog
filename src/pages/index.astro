@@ -1,15 +1,163 @@
 ---
-// src/pages/index.astro
-// This is your homepage. It fetches all blog posts and passes them to HomeLayout.
+import Layout from '../layouts/Layout.astro';
 
-import { getCollection } from 'astro:content';
-import HomeLayout from '../layouts/HomeLayout.astro';
-
-// Fetch all published blog posts from the 'blog' content collection
-const allPosts = await getCollection('blog', ({ data }) => {
-  // Filter out drafts (optional — remove if you don't use draft frontmatter)
-  return data.draft !== true;
-});
+// Placeholder for your posts - you'd eventually fetch these via Astro.glob or Content Collections
+const posts = [
+  {
+    title: "Blog title 1",
+    description: "Short description here. A look into the subtle nuances of our daily existence.",
+    image: "https://via.placeholder.com/600x400",
+    imageSide: "left"
+  },
+  {
+    title: "Blog title 2",
+    description: "Another brief musing on the intersection of art and digital reality.",
+    image: "https://via.placeholder.com/600x400",
+    imageSide: "right"
+  },
+  {
+    title: "Blog title 3",
+    description: "When no photo is available, we lean into the weight of the words themselves.",
+    excerpt: "This is a short excerpt from the blog post that fills the space where an image might usually sit, maintaining the rhythm of the page...",
+    image: null
+  }
+];
 ---
 
-<HomeLayout posts={allPosts} />
+<Layout title="Brian Below | Musings on Life">
+	<div class="container">
+		<div class="main-layout">
+			
+			<header class="sidebar">
+				<div class="nav-content">
+					<h1 class="site-title">Brian Below</h1>
+					<p class="site-tagline">musings on life.</p>
+					<p class="site-description">A digital journal on the art of living.</p>
+					
+					<nav class="main-nav">
+						<a href="/">Home</a>
+						<a href="/about">About</a>
+						<a href="/2026">2026</a>
+					</nav>
+				</div>
+			</header>
+
+			<main class="feed">
+				{posts.map((post) => (
+					<article class="post-entry">
+						<hr />
+						<div class="post-grid">
+							<div class={post.imageSide === 'right' ? 'post-text order-1' : 'post-text'}>
+								<h2 class="post-title">{post.title}</h2>
+								<p class="post-desc">{post.description}</p>
+							</div>
+							
+							<div class="post-media">
+								{post.image ? (
+									<img src={post.image} alt={post.title} class="post-image" />
+								) : (
+									<p class="post-excerpt"><em>{post.excerpt}</em></p>
+								)}
+							</div>
+						</div>
+					</article>
+				))}
+				<hr />
+			</main>
+		</div>
+
+		<footer class="site-footer">
+			<div class="footer-col left">
+				<p>Brian Below</p>
+				<p>Say hi: <a href="mailto:hey@brianbelow.net">hey@brianbelow.net</a></p>
+				<p>Built with <a href="https://astro.build">Astro</a></p>
+			</div>
+			<div class="footer-col center">
+				<button class="subscribe-btn">Subscribe</button>
+				<p>Receive new posts in your email.</p>
+			</div>
+			<div class="footer-col right">
+				<p>Published in Santa Cruz, California</p>
+				<p>Hosted on _____</p>
+			</div>
+		</footer>
+	</div>
+</Layout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+
+	.main-layout {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	/* Sidebar Styles */
+	.sidebar {
+		position: sticky;
+		top: 4rem;
+	}
+	.site-title { font-size: 2.5rem; line-height: 1; }
+	.site-tagline { font-size: 1.2rem; margin-bottom: 0.5rem; }
+	.site-description { font-style: italic; opacity: 0.8; margin-bottom: 2rem; }
+	
+	.main-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		font-size: 1.1rem;
+	}
+
+	/* Feed & Post Styles */
+	.post-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		align-items: center;
+		padding: 1rem 0;
+	}
+	.post-title { font-size: 1.8rem; margin-bottom: 1rem; }
+	.post-image { width: 100%; height: auto; display: block; }
+	.post-excerpt { font-style: italic; line-height: 1.6; }
+
+	.order-1 { order: 1; }
+
+	/* Footer Styles */
+	.site-footer {
+		margin-top: 6rem;
+		padding-top: 2rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2rem;
+		font-size: 0.9rem;
+		border-top: 1px solid var(--border-color);
+	}
+	.center { text-align: center; }
+	.right { text-align: right; }
+
+	.subscribe-btn {
+		background: var(--text-color);
+		color: var(--bg-color);
+		border: none;
+		padding: 0.5rem 1.5rem;
+		font-family: inherit;
+		cursor: pointer;
+		margin-bottom: 0.5rem;
+	}
+
+	/* Mobile adjustment */
+	@media (max-width: 768px) {
+		.main-layout, .post-grid, .site-footer {
+			grid-template-columns: 1fr;
+		}
+		.sidebar { position: relative; top: 0; margin-bottom: 3rem; }
+		.right { text-align: left; }
+		.order-1 { order: 0; }
+	}
+</style>
