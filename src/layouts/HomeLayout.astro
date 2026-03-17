@@ -29,21 +29,23 @@ const sortedPosts = [...posts].sort(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brian Below</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
       rel="stylesheet"
-    />
+    /> -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/egh3idp.css">
     <style>
       /* ── Design tokens ───────────────────────────────────────── */
       :root {
         --bg:         #EFE6EB;
-        --text:       #1a0a12;
+        --text:       #380D25;
         --text-muted: #6b4057;
         --accent:     #380D25;
         --rule:       #c9aab9;
-        --font:       'EB Garamond', Georgia, serif;
+        --font:       adobe-garamond-pro, garamond-premier-pro-display, Georgia, serif;
         --max-width:  860px;
         --h-pad:      3rem;
       }
@@ -65,6 +67,7 @@ const sortedPosts = [...posts].sort(
         background: var(--bg);
         color: var(--text);
         font-family: var(--font);
+        font-feature-settings: "liga" 1;
         font-size: 18px;
         line-height: 1.6;
         transition: background 0.3s ease, color 0.3s ease;
