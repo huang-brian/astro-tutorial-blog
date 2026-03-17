@@ -5,7 +5,7 @@
 
 export interface Props {
   posts?: {
-    slug: string;
+    id: string;
     data: {
       title: string;
       description?: string;
@@ -317,7 +317,7 @@ const sortedPosts = [...posts].sort(
         {sortedPosts.map((post) => (
           <>
             <div class="divider" />
-            <a class="post-link" href={`/${post.slug}`}>
+            <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}`}>
               <article class="post-row">
 
                 <div class="post-left">
