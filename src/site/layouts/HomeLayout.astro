@@ -4,7 +4,6 @@
 
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import SiteTitle from '../components/SiteTitle.astro';
 
 export interface Props {
   posts?: {
@@ -34,11 +33,25 @@ const sortedPosts = [...posts].sort(
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
-      padding: 3rem 0 0.5rem;
+      padding: 3rem 0 2.5rem;
     }
 
     .nav-col {
       padding-top: 0.2rem;
+    }
+
+    .site-title-block h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 0.3rem;
+    }
+
+    .site-title-block .tagline {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
     }
 
     /* ── Post list ───────────────────────────────────────────── */
@@ -100,7 +113,7 @@ const sortedPosts = [...posts].sort(
       font-size: 0.9rem;
       font-weight: 300;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .post-right {
@@ -117,16 +130,14 @@ const sortedPosts = [...posts].sort(
     }
 
     .post-excerpt {
-      font-family: garamond-premier-pro-display;
-      letter-spacing: 0.02em;
       font-size: 0.9rem;
+      font-style: italic;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.65;
       display: -webkit-box;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      margin: 0;
     }
 
     /* ── Mobile ──────────────────────────────────────────────── */
@@ -137,6 +148,8 @@ const sortedPosts = [...posts].sort(
         padding-top: 2rem;
       }
 
+      .site-title-block h1 { font-size: 2.2rem; }
+
       .post-row { grid-template-columns: 1fr; }
     }
   </style>
@@ -145,7 +158,11 @@ const sortedPosts = [...posts].sort(
     <div class="nav-col">
       <Nav />
     </div>
-    <SiteTitle />
+
+    <div class="site-title-block">
+      <h1>Brian Below</h1>
+      <p class="tagline">musings on life.</p>
+    </div>
   </header>
 
   <section class="posts">

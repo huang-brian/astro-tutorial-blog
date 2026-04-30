@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return posts.map((post) => {
+    const year = post.data.date.getFullYear().toString();
+    // post.id is now "2026/my-first-post.md" — strip year prefix and extension
+    const id = post.id.replace(/^\d{4}\//, '').replace(/\.md$/, '');
+
+    const folderYear = post.id.split('/')[0];
+    if (folderYear !== year) {
+      console.warn(`Year mismatch in ${post.id}: folder says ${folderYear}, date says ${year}`);
+    }
+
+    return {
+      params: { year, id },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data}>
+  <Content />
+</BlogPost>

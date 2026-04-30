@@ -1,0 +1,29 @@
+---
+// src/components/SiteTitle.astro
+// Site name and tagline. Used on all pages except BlogPost.
+---
+
+<div class="site-title-block">
+  <h1>Brian Below</h1>
+  <p class="tagline">musings on life.</p>
+</div>
+
+<style>
+  .site-title-block h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .site-title-block .tagline {
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .site-title-block h1 { font-size: 2.2rem; }
+  }
+</style>

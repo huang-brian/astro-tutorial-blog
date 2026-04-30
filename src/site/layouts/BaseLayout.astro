@@ -29,7 +29,7 @@ const { title = "Brian Below", description } = Astro.props;
         --text:       #380D25;
         --text-muted: #6b4057;
         --rule:       #c9aab9;
-        --font:       garamond-premier-pro, adobe-garamond-pro, Georgia, serif;
+        --font:       adobe-garamond-pro, garamond-premier-pro-display, Georgia, serif;
         --max-width:  860px;
         --h-pad:      3rem;
       }
@@ -50,11 +50,9 @@ const { title = "Brian Below", description } = Astro.props;
         background: var(--bg);
         color: var(--text);
         font-family: var(--font);
-        font-feature-settings: "liga" 1;
         font-size: 18px;
-        line-height: 1.4;
+        line-height: 1.6;
         transition: background 0.3s ease, color 0.3s ease;
-        letter-spacing: 0.0em;
       }
 
       /* ── Links ───────────────────────────────────────────── */
@@ -69,9 +67,9 @@ const { title = "Brian Below", description } = Astro.props;
       a:hover { opacity: 0.7; }
 
       /* Footer links: no underline */
-      /* .site-footer a {
+      .site-footer a {
         text-decoration: none;
-      } */
+      }
 
       /* ── Buttons ─────────────────────────────────────────── */
       button,
@@ -110,9 +108,8 @@ const { title = "Brian Below", description } = Astro.props;
       .footer-right { text-align: right; }
 
       .footer-left .name {
-        font-size: 1.5em;
         font-weight: 500;
-        color: var(--text-muted);
+        color: var(--text);
         display: block;
         margin-bottom: 0.2rem;
       }
@@ -170,13 +167,12 @@ const { title = "Brian Below", description } = Astro.props;
       <footer class="site-footer">
         <div class="footer-left">
           <span class="name">Brian Below</span>
-          Say hi: <a style= "opacity: 0.8; text-decoration: none;" href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
+          Say hi: <a href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
         </div>
 
         <div class="footer-mid">
           <button class="subscribe-btn">Subscribe</button>
-          <span class="subscribe-note"><small style="font-style: normal;">^This doesn't work quite yet^</small><br>
-            Receive new posts in your email.</span>
+          <span class="subscribe-note">Receive new posts in your email.</span>
         </div>
 
         <div class="footer-right">

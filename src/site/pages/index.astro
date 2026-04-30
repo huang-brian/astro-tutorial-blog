@@ -1,0 +1,15 @@
+---
+// src/pages/index.astro
+// This is your homepage. It fetches all blog posts and passes them to HomeLayout.
+
+import { getCollection } from 'astro:content';
+import HomeLayout from '../layouts/HomeLayout.astro';
+
+// Fetch all published blog posts from the 'blog' content collection
+const allPosts = await getCollection('blog', ({ data }) => {
+  // Filter out drafts (optional — remove if you don't use draft frontmatter)
+  return data.draft !== true;
+});
+---
+
+<HomeLayout posts={allPosts} />

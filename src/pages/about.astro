@@ -1,12 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import SiteTitle from '../components/SiteTitle.astro';
 ---
 
 <BaseLayout title="About — Brian Below">
   <style>
     .site-header {
-      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 3rem 0 0.5rem;
+    }
+
+    .nav-col {
+      padding-top: 0.2rem;
     }
 
     .content {
@@ -20,23 +28,32 @@ import Nav from '../components/Nav.astro';
     h1 {
       font-size: 2.2rem;
       font-weight: 500;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
-    p { margin-bottom: 1.4em; }
+    p { margin-bottom: 1em; }
 
     @media (max-width: 640px) {
-      .site-header { padding-top: 2rem; }
+      .site-header {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-top: 2rem;
+      }
     }
   </style>
 
   <header class="site-header">
-    <Nav />
+    <div class="nav-col">
+      <Nav />
+    </div>
+    <SiteTitle />
   </header>
 
-  <div class="content">
-    <h1>About Brian</h1>
-    <p>Hello, this is some text.</p>
-    <p>This is some more text about Brian. On another p element!</p>
-  </div>
+
+
+<div class="content">
+    Idk I'm just making a website. All the cool kids are making substacks these days. Am I cool yet? But I'm even cooler bc I made my own website. If you're wondering, I did use AI to code this website. (thanks Claude!) However, none of my writing on this site will use AI. Though these words are conveyed to you by way of machines, I believe the words you read should come wholly from me, mistakes and all. (I had to check the internet to see whether wholly is spelled 'wholly' and not 'wholely'.) Anyways, I appreciate you stopping by. Kudos to you making it here outside the corporate algorithmic data feeds.
+</div>
+
+
 </BaseLayout>

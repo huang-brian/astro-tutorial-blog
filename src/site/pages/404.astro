@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Brian Below">
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 6rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+    }
+
+    p {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+
+  <div class="container">
+    <h1>404</h1>
+    <p>Page not found.</p>
+    <a href="/">← Back home</a>
+  </div>
+</BaseLayout>

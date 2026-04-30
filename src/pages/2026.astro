@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import SiteTitle from '../components/SiteTitle.astro';
 
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true && new Date(data.date).getFullYear() === 2026;
@@ -13,7 +14,14 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
 <BaseLayout title="2026 — Brian Below">
   <style>
     .site-header {
-      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 3rem 0 0.5rem;
+    }
+
+    .nav-col {
+      padding-top: 0.2rem;
     }
 
     .content {
@@ -39,7 +47,7 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
 
     .post-list a {
       display: block;
-      padding: 1rem 0;
+      padding: 0.85rem 0;
       text-decoration: none;
       color: inherit;
       transition: opacity 0.2s;
@@ -50,22 +58,30 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
     .post-title {
       font-size: 1.1rem;
       font-weight: 500;
+      margin: 0;
     }
 
     .post-date {
       font-size: 0.875rem;
       color: var(--text-muted);
       font-style: italic;
-      margin-top: 0.2rem;
+      margin: 0.15rem 0 0;
     }
 
     @media (max-width: 640px) {
-      .site-header { padding-top: 2rem; }
+      .site-header {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-top: 2rem;
+      }
     }
   </style>
 
   <header class="site-header">
-    <Nav />
+    <div class="nav-col">
+      <Nav />
+    </div>
+    <SiteTitle />
   </header>
 
   <div class="content">
