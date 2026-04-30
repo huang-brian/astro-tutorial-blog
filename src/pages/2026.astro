@@ -1,27 +1,86 @@
-is this real life. or is this just fantasy
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
-todo: style 404 page
-style 2026 page (it's gonna be a list of articles)
-fix font colors. maybe adjust the horizontal lines to be lighter in weight
-add details to footer
-bloglayout: move date to bottom
-css: might want to get rid of the italics.
-make a line appear underneath when you mouse over the nav links
-do that thing on the homepage where the photo and text fades when you mouse over it.
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true && new Date(data.date).getFullYear() === 2026;
+});
 
-another todo:
-home page: fade when you mouse over a blog post.
-nav bar: underline appear when you mouse over a nav link.
+const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
 
-global: links need to be updated so they're not ugly blue hyperlink color. 
-separate the header: one for home page and one for blogs
-sepeare the footer into its own thing. the footer will look the same everywhere on the site. 
+<BaseLayout title="2026 — Brian Below">
+  <style>
+    .site-header {
+      padding: 3rem 0 2.5rem;
+    }
 
+    .content {
+      border-top: 1px solid var(--rule);
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+    }
 
-blog layout: center the content horizontally on the page.
-redesign the header. no brian below in header. either I keep the nav bar on left, or make it horizontal
-title of blog post will fill empty space to right of nav bar or just sit below the horizontal nav bar
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
 
-more todo: remove that damn underline from the links.
-fade isn't working.
-astro link in footer isn't underlined.
+    .post-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-list li {
+      border-top: 1px solid var(--rule);
+    }
+
+    .post-list a {
+      display: block;
+      padding: 1rem 0;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+
+    .post-list a:hover { opacity: 0.7; }
+
+    .post-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-header { padding-top: 2rem; }
+    }
+  </style>
+
+  <header class="site-header">
+    <Nav />
+  </header>
+
+  <div class="content">
+    <h1>2026</h1>
+    <ul class="post-list">
+      {sortedPosts.map((post) => (
+        <li>
+          <a href={`/${post.id.replace(/\.md$/, '')}`}>
+            <p class="post-title">{post.data.title}</p>
+            <p class="post-date">
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

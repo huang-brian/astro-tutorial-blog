@@ -1,22 +1,83 @@
 ---
----
-<!-- this about.astro page is accessible at ./about -->
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        
-		<h1>My Blog, Built with Astro</h1>
-        <p>Hello, this is some text.</p>
-        <p>This is how I built this site.</p>
-	</body>
-</html>
+const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
+const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog — Brian Below">
+  <style>
+    .site-header {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .content {
+      border-top: 1px solid var(--rule);
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-list li {
+      border-top: 1px solid var(--rule);
+    }
+
+    .post-list a {
+      display: block;
+      padding: 1rem 0;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+
+    .post-list a:hover { opacity: 0.7; }
+
+    .post-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-header { padding-top: 2rem; }
+    }
+  </style>
+
+  <header class="site-header">
+    <Nav />
+  </header>
+
+  <div class="content">
+    <h1>Blog</h1>
+    <ul class="post-list">
+      {sortedPosts.map((post) => (
+        <li>
+          <a href={`/${post.id.replace(/\.md$/, '')}`}>
+            <p class="post-title">{post.data.title}</p>
+            <p class="post-date">
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

@@ -10,7 +10,7 @@ description: "Ninajirachi, Pedro Sampaio, and more"
 
 ### Ninajirachi - *I love my computer*
 [![Ninajirachi - I love my computer cover art](https://f4.bcbits.com/img/a0649909828_10.jpg)](https://album.link/s/77CZUF57sYqgtznUe3OikQ)
-I wish I could see Ninajirachi at Coachella this year. Also recommended listening: Fuck my computer - Frost Children remix
+I wish I could see Ninajirachi at Coachella this year. Also recommended listening: Fuck my computer - Frost Children remix on [Bandcamp](https://ninajirachi.bandcamp.com/album/fuck-my-computer-frost-children-remix)
 
 ### Pedro Sampaio - *SEQUÊNCIAS #1*
 [![Pedro Sampaio - SEQUÊNCIAS #1 cover art](https://i.scdn.co/image/ab67616d0000b273dac6e6dd6c1fd136bb506b2c)](https://album.link/s/55dQeTyxDtzrixKmRhhG02)

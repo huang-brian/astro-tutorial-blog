@@ -1,8 +1,9 @@
 ---
 // src/layouts/BlogPost.astro
-// Extends BaseLayout. No site title in header — just nav + post header.
+// Extends BaseLayout. Renders the nav, post header, optional hero, and prose body.
 
 import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
 export interface Props {
   title: string;
@@ -23,7 +24,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 <BaseLayout title={`${title} — Brian Below`} description={description}>
 
   <style>
-    /* ── Minimal nav header — no site title ─────────────────── */
+    /* ── Nav header ──────────────────────────────────────────── */
     .site-header {
       display: flex;
       align-items: baseline;
@@ -31,32 +32,10 @@ const formattedDate = date.toLocaleDateString('en-US', {
       padding: 3rem 0 2.5rem;
     }
 
-    .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .nav a {
-      font-size: 1rem;
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: transparent;
-      transition: color 0.2s, text-decoration-color 0.2s;
-      opacity: 1; /* use colour shift, not opacity fade */
-    }
-
-    .nav a:hover {
-      color: var(--text-muted);
-      text-decoration-color: var(--text-muted);
-      opacity: 1;
-    }
-
     /* ── Post header ─────────────────────────────────────────── */
     .post-header {
       max-width: 70ch;
-      margin: 0 auto;            /* centre horizontally */
+      margin: 0 auto;
       padding: 2.5rem 0 1.75rem;
       border-top: 1px solid var(--rule);
     }
@@ -78,7 +57,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
     /* ── Hero image ──────────────────────────────────────────── */
     .hero {
       max-width: 70ch;
-      margin: 0 auto 2rem;       /* centre horizontally */
+      margin: 0 auto 2rem;
     }
 
     .hero img {
@@ -90,16 +69,12 @@ const formattedDate = date.toLocaleDateString('en-US', {
     /* ── Prose body ──────────────────────────────────────────── */
     .prose {
       max-width: 70ch;
-      margin: 0 auto;            /* centre horizontally — this was the fix */
+      margin: 0 auto;
       padding-bottom: 3rem;
     }
 
-    /* Paragraphs */
-    .prose :global(p) {
-      margin-bottom: 1.4em;
-    }
+    .prose :global(p)  { margin-bottom: 1.4em; }
 
-    /* Headings inside posts */
     .prose :global(h2) {
       font-size: 1.45rem;
       font-weight: 500;
@@ -113,7 +88,6 @@ const formattedDate = date.toLocaleDateString('en-US', {
       margin: 1.8em 0 0.5em;
     }
 
-    /* Blockquotes */
     .prose :global(blockquote) {
       border-left: 2px solid var(--rule);
       margin: 1.8em 0;
@@ -122,16 +96,14 @@ const formattedDate = date.toLocaleDateString('en-US', {
       font-style: italic;
     }
 
-    /* Inline code */
     .prose :global(code) {
       font-size: 0.88em;
       background: color-mix(in srgb, var(--rule) 30%, transparent);
       padding: 0.1em 0.35em;
     }
 
-    /* Code blocks */
     .prose :global(pre) {
-      background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+      background: color-mix(in srgb, var(--text) 10%, var(--bg));
       border: 1px solid var(--rule);
       padding: 1.1em 1.4em;
       overflow-x: auto;
@@ -145,39 +117,31 @@ const formattedDate = date.toLocaleDateString('en-US', {
       padding: 0;
     }
 
-    /* Links inside prose — underline style, not opacity fade */
+    /* Needs :global() to reach markdown-rendered anchor tags */
     .prose :global(a) {
       text-decoration: underline;
-      text-underline-offset: 3px;
+      text-underline-offset: 0.18em;
       text-decoration-color: var(--rule);
-      transition: text-decoration-color 0.2s;
-      opacity: 1;
+      color: inherit;
+      transition: opacity 0.2s;
     }
 
-    .prose :global(a:hover) {
-      text-decoration-color: var(--text);
-      opacity: 1;
-    }
+    .prose :global(a:hover) { opacity: 0.7; }
 
-    /* Lists */
     .prose :global(ul),
     .prose :global(ol) {
       padding-left: 1.5em;
       margin-bottom: 1.4em;
     }
 
-    .prose :global(li) {
-      margin-bottom: 0.4em;
-    }
+    .prose :global(li)  { margin-bottom: 0.4em; }
 
-    /* Horizontal rule */
     .prose :global(hr) {
       border: none;
       border-top: 1px solid var(--rule);
       margin: 2.5em 0;
     }
 
-    /* Images inside prose */
     .prose :global(img) {
       max-width: 100%;
       display: block;
@@ -187,37 +151,26 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
     /* ── Mobile ──────────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .site-header { padding-top: 2rem; }
-
-      .post-title { font-size: 1.7rem; }
-
-      .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+      .site-header  { padding-top: 2rem; }
+      .post-title   { font-size: 1.7rem; }
     }
   </style>
 
-  <!-- ── Nav only — no site title ── -->
   <header class="site-header">
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/2026">2026</a>
-    </nav>
+    <Nav />
   </header>
 
-  <!-- ── Post header ── -->
   <div class="post-header">
     <h1 class="post-title">{title}</h1>
     <p class="post-date">{formattedDate}</p>
   </div>
 
-  <!-- ── Optional hero image ── -->
   {heroImage && (
     <div class="hero">
       <img src={heroImage} alt={title} />
     </div>
   )}
 
-  <!-- ── Post body ── -->
   <article class="prose">
     <slot />
   </article>

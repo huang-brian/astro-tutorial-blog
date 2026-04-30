@@ -1,7 +1,6 @@
 ---
 // src/layouts/BaseLayout.astro
-// The root layout that all other layouts extend.
-// Provides: favicon, fonts, global tokens, link styles, footer.
+// Root layout. Provides: favicon, fonts, design tokens, global styles, footer.
 
 export interface Props {
   title?: string;
@@ -18,10 +17,8 @@ const { title = "Brian Below", description } = Astro.props;
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.png" type="image/png" />
 
-    <!-- Typekit fonts -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/egh3idp.css" />
 
@@ -31,12 +28,10 @@ const { title = "Brian Below", description } = Astro.props;
         --bg:         #EFE6EB;
         --text:       #380D25;
         --text-muted: #6b4057;
-        --accent:     #380D25;
         --rule:       #c9aab9;
-        --font:       adobe-garamond-pro, garamond-premier-pro-display, Georgia, serif;
+        --font:       garamond-premier-pro-display, adobe-garamond-pro, Georgia, serif;
         --max-width:  860px;
         --h-pad:      3rem;
-        --link-fade:  0.2s ease;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -44,7 +39,6 @@ const { title = "Brian Below", description } = Astro.props;
           --bg:         #380D25;
           --text:       #f0e2ea;
           --text-muted: #c9a0b8;
-          --accent:     #EFE6EB;
           --rule:       #5e2040;
         }
       }
@@ -60,34 +54,37 @@ const { title = "Brian Below", description } = Astro.props;
         font-size: 18px;
         line-height: 1.6;
         transition: background 0.3s ease, color 0.3s ease;
+        letter-spacing: 0.02em;
       }
 
-      /* ── Global link reset — no ugly browser blue ────────── */
+      /* ── Links ───────────────────────────────────────────── */
       a {
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+        text-decoration-color: var(--rule);
         color: inherit;
+        transition: opacity 0.2s;
+      }
+
+      a:hover { opacity: 0.7; }
+
+      /* Footer links: no underline */
+      .site-footer a {
         text-decoration: none;
       }
 
-      /* ── Universal hover fade on all clickable elements ──── */
-      a,
+      /* ── Buttons ─────────────────────────────────────────── */
       button,
       [role="button"],
       summary {
-        transition: opacity var(--link-fade);
+        transition: opacity 0.2s;
       }
 
-      a:hover,
       button:hover,
       [role="button"]:hover,
       summary:hover {
         opacity: 0.65;
       }
-
-      /*
-        Layouts that want richer hover effects (e.g. color shifts)
-        should set `transition` on child elements and override the
-        opacity rule with `opacity: 1` on the parent :hover if needed.
-      */
 
       /* ── Page wrapper ────────────────────────────────────── */
       .page {
@@ -113,28 +110,21 @@ const { title = "Brian Below", description } = Astro.props;
       .footer-right { text-align: right; }
 
       .footer-left .name {
+        font-size: 1.5em;
         font-weight: 500;
-        color: var(--text);
+        color: var(--text-muted);
         display: block;
         margin-bottom: 0.2rem;
       }
 
-      /* Override the global fade for footer email link — use color instead */
       .footer-left a {
         color: var(--text-muted);
-        transition: color 0.2s;
-        opacity: 1; /* prevent double fade */
-      }
-      .footer-left a:hover {
-        color: var(--text);
-        opacity: 1;
       }
 
       .subscribe-btn {
         display: inline-block;
         padding: 0.4rem 1.25rem;
         border: 1px solid var(--text);
-        border-radius: 0;
         color: var(--text);
         background: transparent;
         font-family: var(--font);
@@ -142,14 +132,12 @@ const { title = "Brian Below", description } = Astro.props;
         cursor: pointer;
         margin-bottom: 0.4rem;
         transition: background 0.2s, color 0.2s, border-color 0.2s;
-        /* Override global opacity fade — colour invert is richer */
-        opacity: 1;
       }
 
       .subscribe-btn:hover {
-        background: var(--accent);
+        background: var(--text);
         color: var(--bg);
-        border-color: var(--accent);
+        border-color: var(--text);
         opacity: 1;
       }
 
@@ -177,10 +165,8 @@ const { title = "Brian Below", description } = Astro.props;
   <body>
     <div class="page">
 
-      <!-- Page-specific header/content injected here -->
       <slot />
 
-      <!-- Shared footer -->
       <footer class="site-footer">
         <div class="footer-left">
           <span class="name">Brian Below</span>
@@ -193,13 +179,12 @@ const { title = "Brian Below", description } = Astro.props;
         </div>
 
         <div class="footer-right">
-          <span>Hosted on <a href="https://www.netlify.com/">Netlify</a><br>
-            Built with <a href="https://astro.build/">Astro</a> + Claude<br>
-            Published in Santa Cruz, California</span>
-          
+          Hosted on <a href="https://www.netlify.com/">Netlify</a><br />
+          Built with <a href="https://astro.build/">Astro</a> + Claude<br />
+          Published in Santa Cruz, California
         </div>
       </footer>
 
-    </div><!-- /.page -->
+    </div>
   </body>
 </html>

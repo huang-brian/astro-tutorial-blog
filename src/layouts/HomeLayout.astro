@@ -1,8 +1,9 @@
 ---
 // src/layouts/HomeLayout.astro
-// Extends BaseLayout. Adds the two-column header with site title + tagline.
+// Extends BaseLayout. Two-column header with site title + tagline, then post list.
 
 import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
 export interface Props {
   posts?: {
@@ -27,52 +28,33 @@ const sortedPosts = [...posts].sort(
 <BaseLayout title="Brian Below">
 
   <style>
-    /* ── Nav + site title header ─────────────────────────────── */
+    /* ── Header ──────────────────────────────────────────────── */
     .site-header {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
-      padding: 3rem 0 2.5rem;
+      padding: 3rem 0 0.5rem;
     }
 
-    .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .nav-col {
       padding-top: 0.2rem;
     }
 
-    .nav a {
-      font-size: 1rem;
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: transparent;
-      transition: color 0.2s, text-decoration-color 0.2s;
-      opacity: 1;
-    }
-
-    .nav a:hover {
-      color: var(--text-muted);
-      text-decoration-color: var(--text-muted);
-      opacity: 1;
-    }
-
     .site-title-block h1 {
+      margin: 0;
       font-size: 3rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      line-height: 1.05;
+      line-height: 1;
       margin-bottom: 0.3rem;
     }
 
     .site-title-block .tagline {
       font-size: 1rem;
-      font-style: italic;
       color: var(--text-muted);
     }
 
-    /* ── Posts list ──────────────────────────────────────────── */
+    /* ── Post list ───────────────────────────────────────────── */
     .posts {
       margin-top: 0.5rem;
     }
@@ -85,8 +67,12 @@ const sortedPosts = [...posts].sort(
     .post-link {
       display: block;
       color: inherit;
-      /* Override global opacity fade — child elements handle their own transitions */
-      opacity: 1;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .post-link:hover {
+      opacity: 0.7;
     }
 
     .post-row {
@@ -113,22 +99,19 @@ const sortedPosts = [...posts].sort(
       display: flex;
       flex-direction: column;
       gap: 0.45rem;
+      align-self: start;
     }
 
     .post-title {
       font-size: 1.3rem;
       font-weight: 500;
       line-height: 1.3;
-      transition: color 0.2s;
-    }
-
-    .post-link:hover .post-title {
-      color: var(--text-muted);
+      margin-block: 0;
     }
 
     .post-description {
       font-size: 0.9rem;
-      font-style: italic;
+      font-weight: 300;
       color: var(--text-muted);
       line-height: 1.5;
     }
@@ -144,11 +127,6 @@ const sortedPosts = [...posts].sort(
       object-fit: cover;
       display: block;
       filter: saturate(0.85);
-      transition: filter 0.3s;
-    }
-
-    .post-link:hover .post-right img {
-      filter: saturate(1.05);
     }
 
     .post-excerpt {
@@ -170,21 +148,16 @@ const sortedPosts = [...posts].sort(
         padding-top: 2rem;
       }
 
-      .nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
-
       .site-title-block h1 { font-size: 2.2rem; }
 
       .post-row { grid-template-columns: 1fr; }
     }
   </style>
 
-  <!-- ── Header with site title ── -->
   <header class="site-header">
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/2026">2026</a>
-    </nav>
+    <div class="nav-col">
+      <Nav />
+    </div>
 
     <div class="site-title-block">
       <h1>Brian Below</h1>
@@ -192,7 +165,6 @@ const sortedPosts = [...posts].sort(
     </div>
   </header>
 
-  <!-- ── Post list ── -->
   <section class="posts">
     {sortedPosts.map((post) => (
       <>
@@ -219,8 +191,6 @@ const sortedPosts = [...posts].sort(
         </a>
       </>
     ))}
-
-    <div class="divider" />
   </section>
 
 </BaseLayout>

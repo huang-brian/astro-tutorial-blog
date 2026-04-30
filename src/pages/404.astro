@@ -1,22 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+---
 
+<BaseLayout title="404 — Brian Below">
+  <style>
+    /* ── Header ──────────────────────────────────────────────── */
+    .site-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 3rem 0 1rem;
+    }
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+    .nav-col {
+      padding-top: 0.2rem;
+    }
 
-<div class="container">
-  <h1>404</h1>
+    .site-title-block h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 0.3rem;
+    }
 
-  <p><strong>Page not found.</strong></p>
-  <p>This page doesn't exist yet :(</p>
-</div>
+    .site-title-block .tagline {
+      font-size: 1rem;
+      font-weight: lighter;
+      color: var(--text-muted);
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-header {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-top: 2rem;
+      }
+
+      .site-title-block h1 { font-size: 2.2rem; }
+
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1em;
+      margin: 2.5em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 6rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: 4.5rem;
+      font-weight: 200;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+      margin-block: 0;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--rule);
+    }
+
+  </style>
+
+  <header class="site-header">
+    <div class="nav-col">
+      <Nav />
+    </div>
+
+    <div class="site-title-block">
+      <h1>Brian Below</h1>
+      <p class="tagline">musings on life.</p>
+    </div>
+  </header>
+  <div class="divider" /></div>
+
+  <div class="container">
+    <h2>404.</h2>
+    <p>Page not found.<br>
+    This page doesn't exist yet :(</p>
+  </div>
+</BaseLayout>
