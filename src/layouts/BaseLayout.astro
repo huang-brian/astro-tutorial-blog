@@ -17,6 +17,8 @@ const { title = "Brian Below", description } = Astro.props;
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
+    <meta name="theme-color" content="#EFE6EB" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#380D25" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.png" type="image/png" />
 
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
@@ -29,7 +31,7 @@ const { title = "Brian Below", description } = Astro.props;
         --text:       #380D25;
         --text-muted: #6b4057;
         --rule:       #c9aab9;
-        --font:       garamond-premier-pro, adobe-garamond-pro, Georgia, serif;
+        --font:       garamond-premier-pro-display, adobe-garamond-pro, Georgia, serif;
         --max-width:  860px;
         --h-pad:      3rem;
       }
@@ -54,7 +56,7 @@ const { title = "Brian Below", description } = Astro.props;
         font-size: 18px;
         line-height: 1.4;
         transition: background 0.3s ease, color 0.3s ease;
-        letter-spacing: 0.0em;
+        letter-spacing: 0.02em;
       }
 
       /* ── Links ───────────────────────────────────────────── */
@@ -69,9 +71,9 @@ const { title = "Brian Below", description } = Astro.props;
       a:hover { opacity: 0.7; }
 
       /* Footer links: no underline */
-      /* .site-footer a {
+      .site-footer a {
         text-decoration: none;
-      } */
+      }
 
       /* ── Buttons ─────────────────────────────────────────── */
       button,
@@ -170,13 +172,12 @@ const { title = "Brian Below", description } = Astro.props;
       <footer class="site-footer">
         <div class="footer-left">
           <span class="name">Brian Below</span>
-          Say hi: <a style= "opacity: 0.8; text-decoration: none;" href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
+          Say hi: <a href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
         </div>
 
         <div class="footer-mid">
           <button class="subscribe-btn">Subscribe</button>
-          <span class="subscribe-note"><small style="font-style: normal;">^This doesn't work quite yet^</small><br>
-            Receive new posts in your email.</span>
+          <span class="subscribe-note">Receive new posts in your email.</span>
         </div>
 
         <div class="footer-right">
