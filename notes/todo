@@ -1,0 +1,5 @@
+fix the padding on the homelayout not consistent with other pages 404 and extendedbase
+it shoule only be
+      padding-bottom: 0.5rem;
+
+make the nav bar two columns for when I have extra stuff

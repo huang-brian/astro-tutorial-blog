@@ -1,0 +1,33 @@
+---
+// src/pages/avocado.astro
+import ExtendedBase from "../layouts/ExtendedBase.astro";
+
+const images = Object.keys(import.meta.glob("/public/avo-cado/*.jpeg")).map(
+  (path) => path.replace("/public", "")
+);
+---
+
+<ExtendedBase title="Avocado">
+  <img
+    id="avo"
+    src={images[0]}
+    alt="avocado"
+    style="cursor: pointer; max-width: 100%; display: block; margin-top: 2rem;"
+  />
+</ExtendedBase>
+
+<script define:vars={{ images }}>
+  const img = document.getElementById("avo");
+
+  function randomOther(current) {
+    const others = images.filter((src) => src !== current);
+    return others[Math.floor(Math.random() * others.length)];
+  }
+
+  // Start with a random image
+  img.src = images[Math.floor(Math.random() * images.length)];
+
+  img.addEventListener("click", () => {
+    img.src = randomOther(img.src.replace(location.origin, ""));
+  });
+</script>
