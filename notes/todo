@@ -3,3 +3,8 @@ it shoule only be
       padding-bottom: 0.5rem;
 
 make the nav bar two columns for when I have extra stuff
+
+
+for f in *.jpeg; do
+    magick "$f" -resize 70% -strip -quality 80 "$f"
+done
