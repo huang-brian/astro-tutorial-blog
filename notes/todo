@@ -5,6 +5,5 @@ it shoule only be
 make the nav bar two columns for when I have extra stuff
 
 
-for f in *.jpeg; do
-    magick "$f" -resize 70% -strip -quality 80 "$f"
-done
+reduce all image sizes in the project to 50% of their original size and set the quality to 85% to optimize loading times. Use the following command in the terminal while in the directory containing the images
+magick mogrify -resize 50% -quality 85 -auto-orient -strip *.jpeg   
