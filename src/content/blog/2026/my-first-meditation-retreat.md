@@ -23,7 +23,7 @@ One guy was in the middle of a break with his girlfriend. Another guy had his re
 
 The [Gomde Center](https://gomdeca.org/) is located in Leggett, CA in Mendocino County. Also located in Leggett is a drive-through [Redwood Tree](https://www.drivethrutree.com/). (Admission is $15.) When driving north from the bay area, the last Costco you’ll pass is in Ukiah, CA. (Conveniently it also has a gas station.) I was told that cellphone reception would be pretty spotty at the meditation center, but I found there was actually good service. (Side tip: If you have someone’s phone number, you can use lookup tools like [Truecaller](https://www.truecaller.com) to identify which cell carrier they use.) Regardless of the connectivity, I planned to leave my phone off for most of the weekend.
 
-I discovered that the food was indeed vegetarian, we weren’t given robes to wear (regular clothes were fine), and we didn’t even start the first meditation practice on time. Gomde Center was a lot more chill that I thought.
+I discovered that the food was indeed vegetarian, we weren’t given robes to wear (regular clothes were fine), and we didn’t even start the first meditation practice on time. Gomde was a lot more chill that I thought.
 
 I learned a lot at the meditation retreat. I learned about compassion, and loving without ego. I learned about the emptiness of all phenomena.
 
