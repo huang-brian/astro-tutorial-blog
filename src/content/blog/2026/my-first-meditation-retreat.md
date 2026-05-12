@@ -27,7 +27,7 @@ I discovered that the food was indeed vegetarian, we weren’t given robes to we
 
 I learned a lot at the meditation retreat. I learned about compassion, and loving without ego. I learned about the emptiness of all phenomena.
 
-[![Gen Z is choosing the perceive the emptiness of all phenomena instead of having sex.](/img/gen-z-emptiness.jpg)](https://x.com/mapporesistant/status/2049498390275231939?s=61)
+[![Gen Z is choosing the perceive the emptiness of all phenomena instead of having sex.](/img/2026/gen-z-emptiness.jpg)](https://x.com/mapporesistant/status/2049498390275231939?s=61)
 
 You know that feeling that all good things are temporary and must come to an end? Like how a fling or a fun night out will always end? And how we always return to a baseline feeling of discomfort or sadness or discontent? The teachers taught us that buddhist practices address and offer a solution to this problem. In fact, all external phenomena, whether it be money, fame, or friends, are incapable of making us happy long-term. These external factors cannot sustain long-term happiness over the long-term. In the end, all of these people or things may die or be taken away. Why place our happiness on something that can be taken away, on something that is conditional? The solution (the teachers will explain this better than I do) is to place our happiness on something truly unconditional—the love and compassion and Buddhahood that is contained innately within each person. Buddhist practices like meditation, therefore, are about cultivating inner compassion, love, and Buddhahood so that we may radiate it outward for the benefit of the Universe.
 
