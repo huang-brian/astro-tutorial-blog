@@ -30,7 +30,7 @@ for the site header, {
 - write more goddamned posts
 - fix the site header
       - ask claude to redesign the blog layout, fix the empty space in the header when no site title is displayed, or display the blog post title in its place
-      - (low priority) make horizontal line consistent on all pages
+      - [X] make horizontal line consistent on all pages
 - set up guest log page
 - set up comments, liking for each post
 - set up email newsletter service
