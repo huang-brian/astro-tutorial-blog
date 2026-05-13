@@ -2,6 +2,7 @@
 // src/layouts/ExtendedBase.astro
 // Extends BaseLayout with Nav and SiteTitle, matching HomeLayout's two-column header.
 // extendedBase includes the site title
+// this is baselayout, but with the site title in the header
 
 import BaseLayout from "./BaseLayout.astro";
 import Nav from "../components/Nav.astro";
@@ -22,16 +23,12 @@ const { title, description } = Astro.props;
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
-      padding: 3rem 0 0.5rem;
+      padding: 3rem 0 1rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     .nav-col {
       padding-top: 0.2rem;
-    }
-
-    .site-header {
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.5rem;
     }
 
     @media (max-width: 640px) {

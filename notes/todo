@@ -20,6 +20,10 @@ add new avo photos.
 
 https://getdarkmatter.dev/ cms for astro
 
+for the site header, {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
 
 
 # Roadmap:
