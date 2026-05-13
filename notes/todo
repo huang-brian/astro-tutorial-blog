@@ -18,3 +18,15 @@ is there something cause avo1 image to load more than others? change avo 1 photo
 add new avo photos
 
 https://getdarkmatter.dev/ cms for astro
+
+
+
+# Roadmap:
+- write more goddamned posts
+- fix the site header
+      - ask claude to design the blog layout
+      - (low priority) make horizontal line consistent on all pages
+- set up guest log page
+- set u comments, liking for each post
+- set up email newsletter service
+      - set up html formatting for emails (prolly ask claude how to do this)
