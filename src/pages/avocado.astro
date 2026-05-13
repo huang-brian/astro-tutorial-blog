@@ -10,7 +10,7 @@ const images = Object.keys(import.meta.glob("/public/avo-cado/*.jpeg")).map(
 <ExtendedBase title="Avocado">
   <img
     id="avo"
-    src={images[0]}
+    src=""
     alt="avocado"
     style="cursor: pointer; max-width: 100%; display: block; margin-top: 2rem;"
   />
@@ -18,16 +18,19 @@ const images = Object.keys(import.meta.glob("/public/avo-cado/*.jpeg")).map(
 
 <script define:vars={{ images }}>
   const img = document.getElementById("avo");
+  let currentIndex = Math.floor(Math.random() * images.length);
 
-  function randomOther(current) {
-    const others = images.filter((src) => src !== current);
-    return others[Math.floor(Math.random() * others.length)];
+  function nextIndex() {
+    let next;
+    do { next = Math.floor(Math.random() * images.length); }
+    while (next === currentIndex);
+    return next;
   }
 
-  // Start with a random image
-  img.src = images[Math.floor(Math.random() * images.length)];
+  img.src = images[currentIndex];
 
   img.addEventListener("click", () => {
-    img.src = randomOther(img.src.replace(location.origin, ""));
+    currentIndex = nextIndex();
+    img.src = images[currentIndex];
   });
 </script>
