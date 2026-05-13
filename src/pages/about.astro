@@ -20,9 +20,8 @@ import SiteTitle from '../components/SiteTitle.astro';
     .content {
       max-width: 70ch;
       margin: 0 auto;
-      border-top: 1px solid var(--rule);
-      padding-top: 2.5rem;
-      padding-bottom: 3rem;
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
     }
 
     h1 {
@@ -33,6 +32,39 @@ import SiteTitle from '../components/SiteTitle.astro';
 
     p { margin-bottom: 1em; }
 
+    .social-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.2s;
+    }
+
+    .social-link:hover {
+      opacity: 0.7;
+    }
+
+    .social-link img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+    }
+
+    .social-link.corner img {
+      border-radius: 50%;
+    }
+
+    .social-link span {
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 640px) {
       .site-header {
         grid-template-columns: 1fr;
@@ -42,7 +74,7 @@ import SiteTitle from '../components/SiteTitle.astro';
     }
   </style>
 
-  <header class="site-header">
+  <header class="site-header" style="padding-bottom: 1rem; border-bottom: 1px solid var(--rule);">
     <div class="nav-col">
       <Nav />
     </div>
@@ -59,7 +91,19 @@ import SiteTitle from '../components/SiteTitle.astro';
 	Though these words are conveyed to you by way of machines, I believe the words you read should come wholly from me, 
 	mistakes and all. (I had to check the internet to see whether wholly is spelled 'wholly' and not 'wholely'.) 
 	Anyways, I appreciate you stopping by. Kudos to you making it here outside the corporate algorithmic data feeds.
-	</p>
+	<br><br></p>
+
+	<p style="padding-top: 0.7rem; border-top: 1px solid var(--rule);">Socials you can stalk me on:</p>
+	<div class="social-links">
+		<a href="https://letterboxd.com/bri_/" class="social-link" rel="noopener noreferrer">
+			<img src="/img/icon/letterboxd-decal.png" alt="Letterboxd">
+			<span>Letterboxd</span>
+		</a>
+		<a href="https://corner.inc/brian5/" class="social-link corner" rel="noopener noreferrer">
+			<img src="/img/icon/corner-app.jpeg" alt="Corner">
+			<span>Corner</span>
+		</a>
+	</div>
 </div>
 
 
