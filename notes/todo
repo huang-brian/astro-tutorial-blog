@@ -6,8 +6,11 @@ make the nav bar two columns for when I have extra stuff
 
 I used this for the avocado photos to bring them down to roughly 500kb.
 reduce image sizes to 50% of their original size and set the quality to 85%. Use the following command in the terminal while in the directory containing the images
-magick mogrify -resize 50% -quality 85 -auto-orient -strip *.jpeg   
+magick mogrify *.heic -resize 50% -quality 85 -auto-orient -strip *.jpeg   
 magick *.heic -strip -resize 50% -quality 85 -auto-orient avo_99.jpeg
+
+terminal command to use imagemagick to convert all .heic files to .jpeg, resize by 50%,  quality 85, auto-orient and strip metadata
+magick mogrify -format jpeg -resize 50% -quality 85 -auto-orient -strip *.heic
 
 always make sure you strip the metadata from the photo before adding them inside the project directory!!!
 
