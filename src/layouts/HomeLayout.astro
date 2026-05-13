@@ -152,7 +152,7 @@ const sortedPosts = [...posts].sort(
     {sortedPosts.map((post) => (
       <>
         <div class="divider" />
-        <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}`}>
+        <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}/`}>
           <article class="post-row">
             <div class="post-left">
               <h2 class="post-title">{post.data.title}</h2>

@@ -89,7 +89,7 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
     <ul class="post-list">
       {sortedPosts.map((post) => (
         <li>
-          <a href={`/${post.id.replace(/\.md$/, '')}`}>
+          <a href={`/${post.id.replace(/\.md$/, '')}/`}>
             <p class="post-title">{post.data.title}</p>
             <p class="post-date">
               {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
