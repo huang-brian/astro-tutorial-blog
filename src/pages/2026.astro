@@ -18,6 +18,7 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
       padding: 3rem 0 1rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     .nav-col {
@@ -25,9 +26,8 @@ const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.
     }
 
     .content {
-      border-top: 1px solid var(--rule);
-      padding-top: 2.5rem;
-      padding-bottom: 3rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
     }
 
     h1 {
