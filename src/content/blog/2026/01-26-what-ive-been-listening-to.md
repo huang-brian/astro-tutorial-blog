@@ -15,7 +15,7 @@ I wish I could see Ninajirachi at Coachella this year. Also recommended listenin
 ### Pedro Sampaio - *SEQUÊNCIAS #1*
 [![Pedro Sampaio - SEQUÊNCIAS #1 cover art](https://i.scdn.co/image/ab67616d0000b273dac6e6dd6c1fd136bb506b2c)](https://album.link/s/55dQeTyxDtzrixKmRhhG02)
 
-Literally every song on this album is a banger. But if I had to pick one, it would be Sequencia Cunt. They way they get that bass distortion on “Sequencia Striptease” is incredible.
+Literally every song on this album is a banger. But if I had to pick one, it would be Sequencia Cunt. They way they get that bass distortion on “Sequência Striptease” is incredible.
 
 ### Sevdaliza - *HEROINA*
 ![Sevdaliza - HEROINA cover art](https://i.scdn.co/image/ab67616d0000b2738764879d436c2b7dfe130396)
