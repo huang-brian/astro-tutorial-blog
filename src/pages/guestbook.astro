@@ -1,7 +1,7 @@
 ---
-// bruh the message viewport needs to be scrollable. newlines should not collapse
+// [x] bruh the message viewport needs to be scrollable. newlines should not collapse
 // also the horizontal line padding needs to be fixed in base. in order to make it consistent across all pages
-// .msg-name font weight is not showing up as bold, and .msg-time is not showing up as italic. are there any conflicting rules?
+// [astro scopeed styles issue] .msg-name font weight is not showing up as bold, and .msg-time is not showing up as italic. are there any conflicting rules?
 // put the name field on top
 // src/pages/guestbook.astro
 import ExtendedBase from '../layouts/ExtendedBase.astro';
@@ -12,12 +12,13 @@ const REDIS_URL      = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
 // On Netlify this can be left unset — falls back to the relative path.
 // On GitHub Pages, set VITE_POST_API_URL to your absolute Netlify function URL.
-const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestbook";
+const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions/guestbook";
+
 
 ---
 
 <ExtendedBase title="Guestbook — Brian Below" description="Leave a new note or view the guestbook.">
-  <style>
+  <style is:global>
     /* ── Page header ───────────────────────────────────────── */
     .site-header {
       display: grid;
@@ -76,11 +77,13 @@ const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestb
       flex-shrink: 0;
     }
 
-    /* Scrollable message area */
+    /* Scrollable message area — fixed height, independent scroll */
     .aim-messages {
-      flex: 1;
+      flex: none;          /* don't let flexbox shrink/grow this */
       height: 420px;
+      min-height: 0;       /* required for overflow to work inside a flex child */
       overflow-y: auto;
+      overflow-x: hidden;
       padding: 0.75rem 0.85rem;
       background: var(--bg);
       display: flex;
@@ -128,8 +131,9 @@ const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestb
       font-size: 0.975rem;
       color: var(--text);
       line-height: 1.5;
-      white-space: pre-wrap;
+      white-space: pre-wrap;   /* preserves newlines, wraps long lines */
       word-break: break-word;
+      overflow-wrap: break-word;
       padding-left: 0.05rem;
     }
 
@@ -265,7 +269,7 @@ const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestb
         padding-top: 2rem;
       }
 
-      .aim-messages { height: 320px; }
+      .aim-messages { height: 320px; min-height: 0; }
       .aim-name { width: 6.5rem; }
     }
   </style>
@@ -326,8 +330,8 @@ const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestb
 
   </div>
 
-  <script define:vars={{ REDIS_URL, REDIS_READONLY }}>
-    const POST_API  = "https://brianbelow.netlify.app/.netlify/functions/guestbook";
+  <script define:vars={{ REDIS_URL, REDIS_READONLY, POST_API_URL }}>
+    const POST_API  = POST_API_URL;
     const LIST_KEY  = "guestbook:entries";
     const MAX       = 500;
 
