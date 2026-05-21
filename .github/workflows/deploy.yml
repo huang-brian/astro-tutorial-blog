@@ -1,10 +1,10 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages using Astro docs template
 
 on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
-  push:
-    branches: [dev]
+  # push:
+    # branches: [dev]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
