@@ -1,8 +1,8 @@
 ---
 // bruh the message viewport needs to be scrollable. newlines should not collapse
 // also the horizontal line padding needs to be fixed in base. in order to make it consistent across all pages
-// idk why .msg-name text is not showing up as bold. is there any conflicting rules?
-// 
+// .msg-name font weight is not showing up as bold, and .msg-time is not showing up as italic. are there any conflicting rules?
+// put the name field on top
 // src/pages/guestbook.astro
 import ExtendedBase from '../layouts/ExtendedBase.astro';
 import Nav from '../components/Nav.astro';
@@ -297,14 +297,14 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
           class="aim-name"
           id="gb-name"
           type="text"
-          placeholder="screen name"
+          placeholder="Name"
           maxlength="60"
           autocomplete="off"
         />
         <textarea
           class="aim-textarea"
           id="gb-message"
-          placeholder="type a message…"
+          placeholder="leave a message…"
           maxlength="500"
           rows="1"
         ></textarea>
