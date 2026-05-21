@@ -12,7 +12,7 @@ const REDIS_URL      = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
 // On Netlify this can be left unset — falls back to the relative path.
 // On GitHub Pages, set VITE_POST_API_URL to your absolute Netlify function URL.
-const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions/guestbook";
+const POST_API_URL   = "https://brianbelow.netlify.app/.netlify/functions/guestbook";
 
 ---
 
