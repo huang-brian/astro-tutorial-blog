@@ -1,0 +1,476 @@
+---
+// bruh the message viewport needs to be scrollable. newlines should not collapse
+// also the horizontal line padding needs to be fixed in base. in order to make it consistent across all pages
+// idk why .msg-name text is not showing up as bold. is there any conflicting rules?
+// 
+// src/pages/guestbook.astro
+import ExtendedBase from '../layouts/ExtendedBase.astro';
+import Nav from '../components/Nav.astro';
+import SiteTitle from '../components/SiteTitle.astro';
+
+const REDIS_URL      = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
+const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
+---
+
+<ExtendedBase title="Guestbook — Brian Below" description="Leave a new note or view the guestbook.">
+  <style>
+    /* ── Page header ───────────────────────────────────────── */
+    .site-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-col { padding-top: 0.2rem; }
+
+    /* ── AIM window ────────────────────────────────────────── */
+    .aim-window {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Title bar — gradient strip like classic AIM */
+    .aim-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.35rem 0.75rem;
+      background: linear-gradient(to bottom, var(--text-muted), var(--text));
+      color: var(--bg);
+      font-size: 0.78rem;
+      font-family: var(--font);
+      letter-spacing: 0.04em;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .aim-titlebar-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .aim-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bg);
+      opacity: 0.45;
+    }
+
+    /* Toolbar strip below titlebar */
+    .aim-toolbar {
+      background: var(--rule);
+      opacity: 0.35;
+      height: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Scrollable message area */
+    .aim-messages {
+      flex: 1;
+      height: 420px;
+      overflow-y: auto;
+      padding: 0.75rem 0.85rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      scroll-behavior: smooth;
+
+      /* Inset shadow for the classic "sunken" look */
+      box-shadow: inset 0 2px 6px color-mix(in srgb, var(--text) 8%, transparent);
+    }
+
+    /* Individual message row */
+    .msg {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      animation: popIn 0.18s ease both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* "ScreenName (time): message" format — AIM classic */
+    .msg-header {
+      font-size: 0.82rem;
+      line-height: 1.3;
+    }
+
+    .msg-name {
+      color: var(--text);
+      font-weight: bold;
+      font-family: var(--font);
+    }
+
+    .msg-time {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-style: italic;
+    }
+
+    .msg-body {
+      font-family: var(--font);
+      font-size: 0.975rem;
+      color: var(--text);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding-left: 0.05rem;
+    }
+
+    /* Divider between messages from different senders */
+    .msg + .msg {
+      padding-top: 0.15rem;
+    }
+
+    /* Loading / empty */
+    .feed-state {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 0.5rem 0;
+    }
+
+    /* ── Separator between messages and input ──────────────── */
+    .aim-divider {
+      height: 1px;
+      background: var(--rule);
+      flex-shrink: 0;
+    }
+
+    /* ── Input area ────────────────────────────────────────── */
+    .aim-input-area {
+      background: var(--bg);
+      padding: 0.6rem 0.85rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .aim-input-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    .aim-name {
+      width: 9rem;
+      flex-shrink: 0;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.88rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .aim-name:focus { border-color: var(--text-muted); }
+
+    .aim-textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.975rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 3px;
+      outline: none;
+      resize: none;
+      line-height: 1.5;
+      min-height: 2.1rem;
+      max-height: 7rem;
+      overflow-y: auto;
+      transition: border-color 0.15s;
+    }
+
+    .aim-textarea:focus { border-color: var(--text-muted); }
+
+    /* "Send" button — boxy, AIM-style */
+    .aim-send {
+      flex-shrink: 0;
+      padding: 0.35rem 1rem;
+      border: 1px solid var(--text);
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .aim-send:hover {
+      background: var(--text);
+      color: var(--bg);
+      opacity: 1;
+    }
+
+    .aim-send:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* Bottom meta row */
+    .aim-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .aim-status {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      min-height: 1em;
+    }
+
+    .aim-status.error { color: #b0392b; font-style: normal; }
+
+    .aim-chars {
+      font-size: 0.75rem;
+      color: var(--rule);
+    }
+
+    .aim-chars.over { color: #b0392b; }
+
+    /* Honeypot */
+    .hp-field { display: none !important; }
+
+    /* ── Mobile ────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-header {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-top: 2rem;
+      }
+
+      .aim-messages { height: 320px; }
+      .aim-name { width: 6.5rem; }
+    }
+  </style>
+
+
+  <!-- ── AIM window ── -->
+  <div class="aim-window">
+
+    <!-- Title bar -->
+    <div class="aim-titlebar">
+      <div class="aim-titlebar-dots">
+        <div class="aim-dot"></div>
+        <div class="aim-dot"></div>
+        <div class="aim-dot"></div>
+      </div>
+      <span>guestbook</span>
+      <span style="opacity:0.5; font-size:0.7rem;">✦</span>
+    </div>
+
+    <div class="aim-toolbar"></div>
+
+    <!-- Scrollable message log -->
+    <div class="aim-messages" id="aim-messages">
+      <p class="feed-state" id="feed-state">Loading…</p>
+    </div>
+
+    <div class="aim-divider"></div>
+
+    <!-- Input area -->
+    <div class="aim-input-area">
+      <div class="aim-input-row">
+        <input
+          class="aim-name"
+          id="gb-name"
+          type="text"
+          placeholder="screen name"
+          maxlength="60"
+          autocomplete="off"
+        />
+        <textarea
+          class="aim-textarea"
+          id="gb-message"
+          placeholder="type a message…"
+          maxlength="500"
+          rows="1"
+        ></textarea>
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <input type="text" id="gb-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="aim-send" id="send-btn" type="button">Send</button>
+      </div>
+      <div class="aim-meta-row">
+        <div class="aim-status" id="form-status" role="status" aria-live="polite"></div>
+        <div class="aim-chars" id="char-count">0 / 500</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script define:vars={{ REDIS_URL, REDIS_READONLY }}>
+    const POST_API  = "/.netlify/functions/guestbook";
+    const LIST_KEY  = "guestbook:entries";
+    const MAX       = 500;
+
+    const msgLog    = document.getElementById("aim-messages");
+    const feedState = document.getElementById("feed-state");
+    const nameInput = document.getElementById("gb-name");
+    const msgInput  = document.getElementById("gb-message");
+    const hpInput   = document.getElementById("gb-website");
+    const sendBtn   = document.getElementById("send-btn");
+    const statusEl  = document.getElementById("form-status");
+    const charCount = document.getElementById("char-count");
+
+    // ── Auto-grow textarea ──────────────────────────────────
+    msgInput.addEventListener("input", () => {
+      msgInput.style.height = "auto";
+      msgInput.style.height = Math.min(msgInput.scrollHeight, 112) + "px";
+      const n = msgInput.value.length;
+      charCount.textContent = `${n} / ${MAX}`;
+      charCount.classList.toggle("over", n > MAX);
+    });
+
+    // Enter = send, Shift+Enter = newline
+    msgInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        submit();
+      }
+    });
+
+    // ── Helpers ─────────────────────────────────────────────
+    function escHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function formatTime(iso) {
+      return new Date(iso).toLocaleString(undefined, {
+        month: "short", day: "numeric",
+        hour: "numeric", minute: "2-digit",
+      });
+    }
+
+    function makeMsg(entry) {
+      const div  = document.createElement("div");
+      div.className = "msg";
+      div.dataset.id = entry.id;
+
+      const name = entry.name || "anonymous";
+      const time = formatTime(entry.timestamp);
+
+      div.innerHTML = `
+        <div class="msg-header">
+          <span class="msg-name">${escHtml(name)}</span>
+          <span class="msg-time"> (${time})</span><span class="msg-time">:</span>
+        </div>
+        <div class="msg-body">${escHtml(entry.message)}</div>
+      `;
+      return div;
+    }
+
+    function scrollToBottom() {
+      msgLog.scrollTop = msgLog.scrollHeight;
+    }
+
+    // ── Load entries from Upstash (read-only token) ─────────
+    async function loadEntries() {
+      try {
+        const url = `${REDIS_URL}/lrange/${encodeURIComponent(LIST_KEY)}/0/499`;
+        const res = await fetch(url, {
+          headers: { Authorization: `Bearer ${REDIS_READONLY}` },
+        });
+        if (!res.ok) throw new Error(`Upstash ${res.status}`);
+        const { result } = await res.json();
+        const entries = (result || []).map((s) => JSON.parse(s));
+
+        feedState.remove();
+
+        if (entries.length === 0) {
+          const p = document.createElement("p");
+          p.className = "feed-state";
+          p.textContent = "No messages yet — say hello.";
+          msgLog.appendChild(p);
+          return;
+        }
+
+        // Newest-first from Redis → reverse for chronological display
+        [...entries].reverse().forEach((e) => msgLog.appendChild(makeMsg(e)));
+        scrollToBottom();
+      } catch (err) {
+        feedState.textContent = "Couldn't load messages.";
+        console.error(err);
+      }
+    }
+
+    // ── Submit ──────────────────────────────────────────────
+    function setStatus(msg, type = "") {
+      statusEl.textContent = msg;
+      statusEl.className = `aim-status ${type}`;
+    }
+
+    async function submit() {
+      const message = msgInput.value.trim();
+      const name    = nameInput.value.trim();
+
+      if (!message) { setStatus("type something first.", "error"); return; }
+      if (message.length > MAX) { setStatus(`too long (${message.length}/${MAX})`, "error"); return; }
+
+      sendBtn.disabled = true;
+      setStatus("sending…");
+
+      try {
+        const res  = await fetch(POST_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, message, website: hpInput.value }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          setStatus(data.error || "something went wrong.", "error");
+          return;
+        }
+
+        // Clear empty-state if present
+        msgLog.querySelector(".feed-state")?.remove();
+
+        // Append and scroll
+        msgLog.appendChild(makeMsg(data.entry));
+        scrollToBottom();
+
+        // Reset form
+        nameInput.value = "";
+        msgInput.value  = "";
+        msgInput.style.height = "auto";
+        charCount.textContent = `0 / ${MAX}`;
+        setStatus("");
+      } catch {
+        setStatus("couldn't reach the server.", "error");
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    sendBtn.addEventListener("click", submit);
+    loadEntries();
+  </script>
+</ExtendedBase>
