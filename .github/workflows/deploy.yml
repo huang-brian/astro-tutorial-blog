@@ -30,8 +30,8 @@ jobs:
             # out-dir: dist # The output directory created by the build command. Defaults to dist. (optional)
         env:
             # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # Use single quotation marks for the variable value. (optional)
-            PUBLIC_UPSTASH_REDIS_REST_URL:       ${{ vars.PUBLIC_UPSTASH_REDIS_REST_URL }}
-            PUBLIC_UPSTASH_REDIS_READONLY_TOKEN: ${{ vars.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN }}
+            PUBLIC_UPSTASH_REDIS_REST_URL: 'https://leading-sawfly-132721.upstash.io'
+            PUBLIC_UPSTASH_REDIS_READONLY_TOKEN: 'ggAAAAAAAgZxAAIgcDG4zZzCmCkoLyTZiyz9MU07_e-WnrMrCF5A9miJDgpb-A'
             VITE_POST_API_URL:                   ${{ secrets.VITE_POST_API_URL }}
 
   deploy:
