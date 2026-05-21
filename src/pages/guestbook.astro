@@ -416,7 +416,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
         [...entries].reverse().forEach((e) => msgLog.appendChild(makeMsg(e)));
         scrollToBottom();
       } catch (err) {
-        feedState.textContent = "Couldn’t load messages from the server.";
+        feedState.textContent = "Couldn’t fetch messages.";
         console.error(err);
       }
     }
