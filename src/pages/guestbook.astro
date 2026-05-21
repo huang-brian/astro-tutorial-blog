@@ -416,7 +416,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
         [...entries].reverse().forEach((e) => msgLog.appendChild(makeMsg(e)));
         scrollToBottom();
       } catch (err) {
-        feedState.textContent = "Couldn't load messages.";
+        feedState.textContent = "Couldn’t fetch messages from the server.";
         console.error(err);
       }
     }
@@ -464,7 +464,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
         charCount.textContent = `0 / ${MAX}`;
         setStatus("");
       } catch {
-        setStatus("couldn't reach the server.", "error");
+        setStatus("couldn’t reach the server.", "error");
       } finally {
         sendBtn.disabled = false;
       }
