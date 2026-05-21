@@ -10,6 +10,10 @@ import SiteTitle from '../components/SiteTitle.astro';
 
 const REDIS_URL      = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
+// On Netlify this can be left unset — falls back to the relative path.
+// On GitHub Pages, set VITE_POST_API_URL to your absolute Netlify function URL.
+const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions/guestbook";
+
 ---
 
 <ExtendedBase title="Guestbook — Brian Below" description="Leave a new note or view the guestbook.">
@@ -323,7 +327,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
   </div>
 
   <script define:vars={{ REDIS_URL, REDIS_READONLY }}>
-    const POST_API  = "https://brianbelow.netlify.app/.netlify/functions/guestbook";
+    const POST_API  = POST_API_URL;
     const LIST_KEY  = "guestbook:entries";
     const MAX       = 500;
 
