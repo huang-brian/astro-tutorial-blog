@@ -323,7 +323,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
   </div>
 
   <script define:vars={{ REDIS_URL, REDIS_READONLY }}>
-    const POST_API  = "/.netlify/functions/guestbook";
+    const POST_API  = "https://brianbelow.netlify.app/.netlify/functions/guestbook";
     const LIST_KEY  = "guestbook:entries";
     const MAX       = 500;
 
@@ -464,7 +464,7 @@ const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
         charCount.textContent = `0 / ${MAX}`;
         setStatus("");
       } catch {
-        setStatus("couldn’t reach the server.", "error");
+        setStatus("couldn’t connect to the server, message not sent.", "error");
       } finally {
         sendBtn.disabled = false;
       }
