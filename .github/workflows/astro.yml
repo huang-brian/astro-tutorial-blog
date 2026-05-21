@@ -62,8 +62,9 @@ jobs:
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
 
         env:
-          PUBLIC_UPSTASH_REDIS_REST_URL: 'https://leading-sawfly-132721.upstash.io'
-          PUBLIC_UPSTASH_REDIS_READONLY_TOKEN: 'ggAAAAAAAgZxAAIgcDG4zZzCmCkoLyTZiyz9MU07_e-WnrMrCF5A9miJDgpb-A'
+          PUBLIC_UPSTASH_REDIS_REST_URL:       ${{ vars.PUBLIC_UPSTASH_REDIS_REST_URL }}
+          PUBLIC_UPSTASH_REDIS_READONLY_TOKEN: ${{ vars.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN }}
+          VITE_POST_API_URL:                   ${{ secrets.VITE_POST_API_URL }}
 
       - name: Setup Pages
         id: pages
