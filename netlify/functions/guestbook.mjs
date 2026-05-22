@@ -35,11 +35,12 @@ async function redisTransaction(commands) {
     },
     body: JSON.stringify(commands),
   });
+  
   if (!res.ok) throw new Error(`Redis transaction failed: ${res.status}`);
   const results = await res.json();
-  // Check each result for errors
-  const failed = results.find((r) => r.error);
-  if (failed) throw new Error(`Redis command error: ${failed.error}`);
+  
+  // Performance tweak: .some() is faster and memory-lean for boolean checks
+  if (results.some(r => r.error)) throw new Error("Redis command error.");
   return results;
 }
 
@@ -52,11 +53,10 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+// Performance tweak: Native Response.json() runs at the C++ layer
+// and automatically manages the Content-Type header.
 function respond(status, body) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { "Content-Type": "application/json", ...CORS },
-  });
+  return Response.json(body, { status, headers: CORS });
 }
 
 // ---------------------------------------------------------------------------
@@ -71,6 +71,12 @@ export default async (request, context) => {
     return respond(405, { error: "Method not allowed." });
   }
 
+  // Memory tweak: Terminate early if the payload is suspiciously large
+  const contentLength = parseInt(request.headers.get("content-length") || "0", 10);
+  if (contentLength > 3000) { 
+    return respond(413, { error: "Payload too large." });
+  }
+
   let body;
   try {
     body = await request.json();
@@ -83,8 +89,9 @@ export default async (request, context) => {
     return respond(200, { ok: true });
   }
 
-  const message = (body.message || "").trim();
-  const name    = (body.name    || "").trim();
+  // Memory tweak: Safe fallback to avoid extra string allocations if undefined
+  const message = body.message ? String(body.message).trim() : "";
+  const name    = body.name ? String(body.name).trim() : "";
 
   if (!message)
     return respond(400, { error: "Message is required." });
