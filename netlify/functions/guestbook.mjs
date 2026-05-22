@@ -35,12 +35,11 @@ async function redisTransaction(commands) {
     },
     body: JSON.stringify(commands),
   });
-  
   if (!res.ok) throw new Error(`Redis transaction failed: ${res.status}`);
   const results = await res.json();
-  
-  // Performance tweak: .some() is faster and memory-lean for boolean checks
-  if (results.some(r => r.error)) throw new Error("Redis command error.");
+  // Check each result for errors
+  const failed = results.find((r) => r.error);
+  if (failed) throw new Error(`Redis command error: ${failed.error}`);
   return results;
 }
 
@@ -53,10 +52,11 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
-// Performance tweak: Native Response.json() runs at the C++ layer
-// and automatically manages the Content-Type header.
 function respond(status, body) {
-  return Response.json(body, { status, headers: CORS });
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "Content-Type": "application/json", ...CORS },
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -89,9 +89,8 @@ export default async (request, context) => {
     return respond(200, { ok: true });
   }
 
-  // Memory tweak: Safe fallback to avoid extra string allocations if undefined
-  const message = body.message ? String(body.message).trim() : "";
-  const name    = body.name ? String(body.name).trim() : "";
+  const message = (body.message || "").trim();
+  const name    = (body.name    || "").trim();
 
   if (!message)
     return respond(400, { error: "Message is required." });
@@ -115,6 +114,7 @@ export default async (request, context) => {
   const meta = {
     id,
     ip:          context.ip ?? null,
+    userAgent:   request.headers.get("user-agent") ?? null,
     city:        geo.city ?? null,
     countryCode: geo.country?.code ?? null,
     countryName: geo.country?.name ?? null,
