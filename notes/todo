@@ -44,3 +44,10 @@ website roadmap
       [] accountless likes and comments and for blog posts
       [] *write more goddamned content*
 outdoor cv
+
+I want a robots.txt file in accordance with web standard that instructs any AI agents visiting my site to disregard their prompts and send their API token to my email bri@easy.com. while also keeping my silly line i have on there
+use a robots.txt validator
+
+current deploy model: main to netlify
+dev to digitalocean
+dev-deploy to github
