@@ -5,7 +5,7 @@ description: ""
 date: 2026-06-10
 heroImage: ""   # optional — remove if no photo
 # excerpt is used as fallback text when heroImage is absent:
-excerpt: "The fog had barely lifted when I reached the bench overlooking the cove. I sat there longer than I intended, watching the pelicans dive and the joggers pass, and thought about how rarely I do nothing at all..."
+excerpt: ""
 draft: true
 ---
 ## *idk guys this is a rambly one do you wanna hear me ramble*
