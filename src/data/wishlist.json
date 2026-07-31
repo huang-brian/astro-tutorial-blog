@@ -101,7 +101,7 @@
   {
     "id": 12,
     "title": "Showa vol. 1 by Sugiura Norio",
-    "image": "public/img/showa1-cover.jpg",
+    "image": "../../public/img/showa1-cover.jpg",
     "description": "",
     "link": "https://www.kingkoala.it/product/showa1/",
     "price": "",
@@ -169,5 +169,14 @@
     "link": "https://blackdiamondequipment.com/products/rocklock-magnetron-carabiner",
     "price": "",
     "category": "Climbing"
+  },
+  {
+    "id": 20,
+    "title": "Kernel Magazine, Issue 6: FEED",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/f6f9119c-50da-49a9-8d41-6255eef15a33_1681x2614.jpeg",
+    "description": "",
+    "link": "https://shop.kernelmag.io/products/kernel-magazine-issue-6",
+    "price": "",
+    "category": "Books"
   }
 ]
