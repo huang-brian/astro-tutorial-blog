@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "title": "Vibram scramkey approach shoes",
+    "title": "Vibram Scramkey approach shoes",
     "image": "https://www.vibram.com/dw/image/v2/AAWR_PRD/on/demandware.static/-/Sites-vbi-apparel-footwear/default/dw17b67662/images/U46/25U4307_Scramkey_Fig_01.jpg?sw=1200&sh=1200",
     "description": "",
     "link": "https://www.vibram.com/us/shop/sales/men/scramkey/U46_BlackFigA.Green.html",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "title": "Trango vergo",
+    "title": "Trango Vergo",
     "image": "https://trango.com/cdn/shop/files/28622-400_Vergo_Gold_MainImage.jpg",
     "description": "",
     "link": "https://trango.com/products/vergo?variant=39820688916585",
@@ -101,7 +101,7 @@
   {
     "id": 12,
     "title": "Showa vol. 1 by Sugiura Norio",
-    "image": "../assets/showa1-cover.jpg",
+    "image": "public/img/showa1-cover.jpg",
     "description": "",
     "link": "https://www.kingkoala.it/product/showa1/",
     "price": "",
@@ -109,7 +109,7 @@
   },
   {
     "id": 13,
-    "title": "DURO magazine issue 00",
+    "title": "DURO magazine iss. 00",
     "image": "https://static.wixstatic.com/media/b3d139_3cfe40d241b8471d84d7127a86bc41df~mv2.png",
     "description": "",
     "link": "https://www.kingkoala.it/product/duro0/",
@@ -118,7 +118,7 @@
   },
   {
     "id": 14,
-    "title": "BUTT 37",
+    "title": "BUTT magazine 37",
     "image": "https://cdn.shopify.com/s/files/1/0658/0918/7043/files/Butt37-Cover-Shop.jpg",
     "description": "",
     "link": "https://buttmagazine.com/library/butt-37/",
@@ -160,5 +160,14 @@
     "link": "https://www.amazon.com/dp/B0DNKKD42T",
     "price": "",
     "category": "Books"
+  },
+  {
+    "id": 19,
+    "title": "BD Rocklock Magnetron Locking Carabiner",
+    "image": "https://blackdiamondequipment.com/cdn/shop/files/210212_0002_Rocklock_Magnetron_Carabiner_Black_01.jpg",
+    "description": "",
+    "link": "https://blackdiamondequipment.com/products/rocklock-magnetron-carabiner",
+    "price": "",
+    "category": "Climbing"
   }
 ]
