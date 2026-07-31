@@ -11,3 +11,18 @@ draft: true
 https://radar.cloudflare.com/scan/282139f4-7269-4c8d-9ef7-ba9fdca75f2a/summary
 
 change this to an .astro file later
+
+# Consulting services
+
+[Consulting services](/consulting/)
+
+# Wishlist
+
+[Wishlist](/wishlist/)
+
+# Outdoor CV
+
+# avocado
+
+[avocado](/avocado/)
+
