@@ -101,7 +101,7 @@
   {
     "id": 12,
     "title": "Showa vol. 1 by Sugiura Norio",
-    "image": "https://sirv.yugenstudio.it/WP_www.yugenstudio.it/2024/04/showa1-cover-scaled.jpg",
+    "image": "../assets/showa1-cover.jpg",
     "description": "",
     "link": "https://www.kingkoala.it/product/showa1/",
     "price": "",
@@ -110,7 +110,7 @@
   {
     "id": 13,
     "title": "DURO magazine issue 00",
-    "image": "../assets/show1-cover.jpg",
+    "image": "https://static.wixstatic.com/media/b3d139_3cfe40d241b8471d84d7127a86bc41df~mv2.png",
     "description": "",
     "link": "https://www.kingkoala.it/product/duro0/",
     "price": "",
