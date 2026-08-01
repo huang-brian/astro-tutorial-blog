@@ -6,11 +6,6 @@ date: 2026-05-31
 
 draft: true
 ---
-# About my site
-
-https://radar.cloudflare.com/scan/282139f4-7269-4c8d-9ef7-ba9fdca75f2a/summary
-
-change this to an .astro file later
 
 # Consulting services
 
@@ -19,6 +14,10 @@ change this to an .astro file later
 # Wishlist
 
 [Wishlist](/wishlist/)
+
+# Shibari 101 guide
+
+Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
 
 # Outdoor CV
 

@@ -1,7 +1,7 @@
 ---
 title: "Why do well in school?"
 description: "at Gomde California"
-date: 2026-05-10
+date: 2026-07-10
 heroImage: /img/2026/gomde-ca-2026.jpg
 # excerpt is used as fallback text when heroImage is absent:
 excerpt: ""

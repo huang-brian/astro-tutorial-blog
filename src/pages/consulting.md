@@ -12,6 +12,21 @@ draft: true
 Most services start at $45/hr or barter/skill trade unless otherwise specified. 
 Chat with me on signal @bri.98 or email hey@brianbelow.net to get started!
 
+## Climbing workshops
+### Top rope anchors workshop
+Learn how to:
+- build a quad and other common anchors
+- evaluate the strength of a climbing anchor
+- clean anchors
+- tie common climbing knots and hitches: overhand, figure eight, bowline, clove hitch, knots on a bight
+### Multipitch sport climbing workshop
+Learn how to:
+- perform multipitch anchor transitions
+- set up quad anchors
+- belay from above
+- perform an extended rappel
+- and more!
+
 ## Technology consulting
 ### Bypass internet censorship
 Visiting China, Russia or another country with internet censorship? For $8 USD per month, I'll set up a custom VPN server to help you bypass China's Great Firewall or other Internet censorship.
@@ -29,22 +44,10 @@ Learn how to use privacy tools and software to reduce internet tracking. Learn w
 ### boyfriend for a day
 - I'll be your twink boyfriend for a day…. whatever you want 😉 (upon prior negotiation)
 ### Brother or boyfriend comes with you to the mechanic or car dealership
-(free, barter, or skill trade)
+(avilable for free, barter, or skill trade)
 - I'll help you purchase a new car or get your car serviced without (mostly) being scammed.
 ### Shibari session
 (groundwork only, no-suspension)
 
-## Climbing workshops
-### Top rope anchors workshop
-Learn how to:
-- build a quad and other common anchors
-- evaluate the strength of a climbing anchor
-- clean anchors
-- tie common climbing knots and hitches: overhand, figure eight, bowline, clove hitch, knots on a bight
-### Multipitch sport climbing workshop
-Learn how to:
-- perform multipitch anchor transitions
-- set up quad anchors
-- belay from above
-- and more!
+
 
