@@ -11,16 +11,16 @@ draft: true
 
 [Consulting services](/consulting/)
 
-# Wishlist
-
-[Wishlist](/wishlist/)
+# Outdoor CV
+[Outdoor CV](/outdoor-cv/)
 
 # Shibari 101 guide
 
 Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
 
-# Outdoor CV
-[Outdoor CV](/outdoor-cv/)
+
+# 2026 Articles
+ [2026](/2026/)
 
 # avocado
 
