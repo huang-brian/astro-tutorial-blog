@@ -8,9 +8,6 @@ const description = "My outdoor climbing, hiking, and adventure experience.";
 
 <ExtendedBase title={title} description={description}>
   <style>
-    body{
-      line-height: 1.2;
-    }
     .outdoor-cv-container {
       padding: 2rem 0;
     }
@@ -103,11 +100,8 @@ const description = "My outdoor climbing, hiking, and adventure experience.";
           )}
           {entry.description && entry.description.length > 0 && (
             <div class="description">
-              {entry.description.map((desc, idx) => (
-                <>
-                  {idx > 0 && <br />}
-                  <div class="description-item">{desc}</div>
-                </>
+              {entry.description.map((desc) => (
+                <div class="description-item">{desc}</div>
               ))}
             </div>
           )}
