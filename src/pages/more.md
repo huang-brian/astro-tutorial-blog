@@ -1,10 +1,9 @@
 ---
 layout: ../layouts/ExtendedBase.astro
-title: "About me"
-description: ""
+title: "More"
+description: "More"
 date: 2026-05-31
 
-draft: true
 ---
 
 # Consulting services
