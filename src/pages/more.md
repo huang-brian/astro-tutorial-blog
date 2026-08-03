@@ -20,6 +20,7 @@ draft: true
 Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
 
 # Outdoor CV
+[Outdoor CV](/outdoor-cv/)
 
 # avocado
 

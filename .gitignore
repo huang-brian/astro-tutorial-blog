@@ -26,3 +26,5 @@ pnpm-debug.log*
 *.zip
 # Local Netlify folder
 .netlify
+
+stuff for claude

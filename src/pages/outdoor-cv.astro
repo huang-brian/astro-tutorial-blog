@@ -1,0 +1,118 @@
+---
+import ExtendedBase from "../layouts/ExtendedBase.astro";
+import outdoorData from "../data/outdoor-cv.json";
+
+const title = "Outdoor CV | Brian Below";
+const description = "My outdoor climbing, hiking, and adventure experience.";
+---
+
+<ExtendedBase title={title} description={description}>
+  <style>
+    body{
+      line-height: 1.2;
+    }
+    .outdoor-cv-container {
+      padding: 2rem 0;
+    }
+
+    .outdoor-cv-title {
+      font-size: 1.7em;
+      font-weight: bold;
+      margin-bottom: 1.5em;
+      color: var(--text);
+    }
+
+    .cv-entry {
+      display: flex;
+      margin-bottom: 1.5em;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    .left-col {
+      flex: 0 0 120px;
+    }
+
+    .right-col {
+      flex: 1;
+    }
+
+    .date {
+      color: var(--text);
+      font-weight: normal;
+    }
+
+    .date-subheader {
+      color: var(--text-muted);
+      font-size: 0.95em;
+    }
+
+    .entry-title {
+      font-weight: bold;
+      color: var(--text);
+      margin-bottom: 0.25em;
+    }
+
+    .title-subheader {
+      color: var(--text-muted);
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
+    }
+
+    .description {
+      color: var(--text);
+      white-space: normal;
+      line-height: 1.4;
+    }
+
+    .description-item {
+      margin-bottom: 0.25em;
+    }
+
+    @media (max-width: 640px) {
+      .cv-entry {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .left-col {
+        flex: 1;
+      }
+
+      .outdoor-cv-title {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+
+  <div class="outdoor-cv-container">
+    <h1 class="outdoor-cv-title">Outdoor Experience</h1>
+
+    {outdoorData.map((entry) => (
+      <div class="cv-entry">
+        <div class="left-col">
+          {entry.date && <div class="date">{entry.date}</div>}
+          {entry["date subheader (grey)"] && (
+            <div class="date-subheader">{entry["date subheader (grey)"]}</div>
+          )}
+        </div>
+        <div class="right-col">
+          {entry.title && <div class="entry-title">{entry.title}</div>}
+          {entry["title subheader (grey)"] && (
+            <div class="title-subheader">{entry["title subheader (grey)"]}</div>
+          )}
+          {entry.description && entry.description.length > 0 && (
+            <div class="description">
+              {entry.description.map((desc, idx) => (
+                <>
+                  {idx > 0 && <br />}
+                  <div class="description-item">{desc}</div>
+                </>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</ExtendedBase>
