@@ -172,10 +172,10 @@
   },
   {
     "id": 20,
-    "title": "Kernel Magazine, Issue 6: FEED",
-    "image": "https://substack-post-media.s3.amazonaws.com/public/images/f6f9119c-50da-49a9-8d41-6255eef15a33_1681x2614.jpeg",
+    "title": "Chair Shibari",
+    "image": "https://static.wixstatic.com/media/9869c3_1ddf87a798c54efa8a5fedff3b6b497f~mv2.jpg",
     "description": "",
-    "link": "https://joinreboot.org/p/kernel-season-is-here",
+    "link": "https://www.chairshibari.com/product-page/chair-shibari-photo-book",
     "price": "",
     "category": "Books"
   },
@@ -187,5 +187,23 @@
     "link": "https://www.apecwater.com/products/ro-quick90-detail",
     "price": "",
     "category": "Other"
+  },
+  {
+    "id": 22,
+    "title": "C.A.M.P. Enigma Swivel (black)",
+    "image": "https://www.adamsport.store/sub/adamsport.eu/shop/product/otocny-mechanizmus-camp-enigma-black-106815.jpg",
+    "description": "",
+    "link": "https://www.camp.it/d/us/us/outdoor/product/3558",
+    "price": "",
+    "category": "Shibari"
+  },
+  {
+    "id": 23,
+    "title": "Kernel Magazine, Issue 6: FEED",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/f6f9119c-50da-49a9-8d41-6255eef15a33_1681x2614.jpeg",
+    "description": "",
+    "link": "https://joinreboot.org/p/kernel-season-is-here",
+    "price": "",
+    "category": "Books"
   }
 ]
