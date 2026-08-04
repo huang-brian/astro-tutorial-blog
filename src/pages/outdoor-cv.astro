@@ -9,7 +9,7 @@ const description = "My climbing and outdoor adventure experiences.";
 <ExtendedBase title={title} description={description}>
   <style>
     .outdoor-cv-container {
-      padding: 1.5rem 0;
+      padding: 1rem 0;
       line-height: 1.2;
     }
 
@@ -70,6 +70,17 @@ const description = "My climbing and outdoor adventure experiences.";
 
       .left-col {
         flex: 1;
+        display: flex;
+        gap: 0.3rem;
+        align-items: baseline;
+      }
+
+      .date {
+        white-space: nowrap;
+      }
+
+      .date-subheader::before {
+        content: "– ";
       }
 
       .outdoor-cv-title {
