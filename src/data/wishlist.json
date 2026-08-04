@@ -1,209 +1,143 @@
 [
   {
-    "id": 1,
     "title": "Edelrid nineteen G carabiner",
     "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/35232/web-m",
-    "description": "",
     "link": "https://edelrid.com/int-en/sport/carabiners-and-quickdraws/nineteen-g?variant=2441203",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 2,
     "title": "Trad rack",
     "image": "https://outdoorgearlab.b-cdn.net/photos/15/40/275496_26703_XXL.jpg",
-    "description": "",
-    "link": "",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 3,
     "title": "Mammut 120cm contact sling",
     "image": "https://www.backcountry.com/images/items/large/MAM/MAM002X/BL.jpg",
-    "description": "",
-    "link": "",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 4,
     "title": "Mammut wiregate rackpack",
     "image": "https://static.mammut.com/cdn-cgi/image/width=4096,quality=85,f=auto,metadata=none/master/2040-02790-11277_main-grey_207986.jpg",
-    "description": "",
     "link": "https://www.mammut.com/us/en/products/2040-02790-11277/sender-wire-rackpack",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 5,
     "title": "Edelrid HMS bulletproof triple locking carabiner",
     "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/35218/web-m",
-    "description": "",
     "link": "https://edelrid.com/us-en/sport/carabiners-and-quickdraws/hms-bulletproof-triple-fg-eco?variant=2459364",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 6,
-    "title": "Edelrid slider oval locking carabiner (in black)",
-    "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/32226/web-m",
-    "description": "",
-    "link": "https://edelrid.com/us-en/sport/carabiners-and-quickdraws/kiwi-slider?variant=2052206",
-    "price": "",
-    "category": "Shibari"
-  },
-  {
-    "id": 7,
-    "title": "Edelrid kiwi oval carabiner (in black)",
-    "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/35394/web-m",
-    "description": "",
-    "link": "https://edelrid.com/int-en/sport/carabiners-and-quickdraws/kiwi?variant=2052209",
-    "price": "",
-    "category": "Shibari"
-  },
-  {
-    "id": 8,
     "title": "Bisexual climbing rope 70m 9.3mm",
     "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/35372/web-m",
-    "description": "",
     "link": "https://edelrid.com/us-en/sport/ropes/tommy-caldwell-eco-dry-ct-9-3mm?variant=2120653",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 9,
     "title": "Vibram Scramkey approach shoes",
     "image": "https://www.vibram.com/dw/image/v2/AAWR_PRD/on/demandware.static/-/Sites-vbi-apparel-footwear/default/dw17b67662/images/U46/25U4307_Scramkey_Fig_01.jpg?sw=1200&sh=1200",
-    "description": "",
     "link": "https://www.vibram.com/us/shop/sales/men/scramkey/U46_BlackFigA.Green.html",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 10,
     "title": "Trango Vergo",
     "image": "https://trango.com/cdn/shop/files/28622-400_Vergo_Gold_MainImage.jpg",
-    "description": "",
     "link": "https://trango.com/products/vergo?variant=39820688916585",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 11,
     "title": "Camp shower",
     "image": "https://yakima.com/cdn/shop/files/3d3221eb-f362-41de-ac94-02c9d626edbc_1728x.jpg",
-    "description": "",
     "link": "https://yakima.com/products/roadshower?variant=40602383712304",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 12,
-    "title": "Showa vol. 1 by Sugiura Norio",
-    "image": "/img/showa1-cover.jpg",
-    "description": "",
-    "link": "https://www.kingkoala.it/product/showa1/",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 13,
-    "title": "DURO magazine iss. 00",
-    "image": "https://static.wixstatic.com/media/b3d139_3cfe40d241b8471d84d7127a86bc41df~mv2.png",
-    "description": "",
-    "link": "https://www.kingkoala.it/product/duro0/",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 14,
-    "title": "BUTT magazine 37",
-    "image": "https://cdn.shopify.com/s/files/1/0658/0918/7043/files/Butt37-Cover-Shop.jpg",
-    "description": "",
-    "link": "https://buttmagazine.com/library/butt-37/",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 15,
-    "title": "The Beauty of Kinbaku by Master “K”",
-    "image": "https://m.media-amazon.com/images/I/81Uirndsm7L.jpg",
-    "description": "",
-    "link": "http://www.thebeautyofkinbaku.com/buytestB.html",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 16,
-    "title": "Essence of Shibari by Shin Nawakiri",
-    "image": "https://rezised-images.knhbt.cz/1920x1920/11314132.webp",
-    "description": "",
-    "link": "https://bookshop.org/p/books/essence-of-shibari-kinbaku-and-japanese-rope-bondage-shin-nawakari/8212b3c6c396b057",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 17,
-    "title": "Shibari Suspensions: A Step by Step Guide by Gestalta",
-    "image": "https://images-us.bookshop.org/ingram/9780957627543.jpg",
-    "description": "",
-    "link": "https://bookshop.org/p/books/shibari-suspensions-a-step-by-step-guide-gestalta/075050b080d3a4f6",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 18,
-    "title": "Soaring & Exploring: Self-Suspension for Experienced Tiers & Fliers by Shay Tiziano",
-    "image": "https://m.media-amazon.com/images/I/71ePfZZYmLL.jpg",
-    "description": "",
-    "link": "https://www.amazon.com/dp/B0DNKKD42T",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 19,
     "title": "BD Rocklock Magnetron Locking Carabiner",
     "image": "https://blackdiamondequipment.com/cdn/shop/files/210212_0002_Rocklock_Magnetron_Carabiner_Black_01.jpg",
-    "description": "",
     "link": "https://blackdiamondequipment.com/products/rocklock-magnetron-carabiner",
-    "price": "",
     "category": "Climbing"
   },
   {
-    "id": 20,
-    "title": "Chair Shibari",
-    "image": "https://static.wixstatic.com/media/9869c3_1ddf87a798c54efa8a5fedff3b6b497f~mv2.jpg",
-    "description": "",
-    "link": "https://www.chairshibari.com/product-page/chair-shibari-photo-book",
-    "price": "",
-    "category": "Books"
-  },
-  {
-    "id": 21,
-    "title": "APEC water reverse osmosis system",
-    "image": "https://www.apecwater.com/cdn/shop/files/ro-quick-90-main.jpg",
-    "description": "",
-    "link": "https://www.apecwater.com/products/ro-quick90-detail",
-    "price": "",
-    "category": "Other"
-  },
-  {
-    "id": 22,
-    "title": "C.A.M.P. Enigma Swivel (black)",
-    "image": "https://www.adamsport.store/sub/adamsport.eu/shop/product/otocny-mechanizmus-camp-enigma-black-106815.jpg",
-    "description": "",
-    "link": "https://www.camp.it/d/us/us/outdoor/product/3558",
-    "price": "",
+    "title": "Edelrid slider oval locking carabiner (in black)",
+    "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/32226/web-m",
+    "link": "https://edelrid.com/us-en/sport/carabiners-and-quickdraws/kiwi-slider?variant=2052206",
     "category": "Shibari"
   },
   {
-    "id": 23,
+    "title": "Edelrid kiwi oval carabiner (in black)",
+    "image": "https://shopapi.edelrid.com/v1/media/image/edelrid/35394/web-m",
+    "link": "https://edelrid.com/int-en/sport/carabiners-and-quickdraws/kiwi?variant=2052209",
+    "category": "Shibari"
+  },
+  {
+    "title": "C.A.M.P. Enigma Swivel (black)",
+    "image": "https://www.adamsport.store/sub/adamsport.eu/shop/product/otocny-mechanizmus-camp-enigma-black-106815.jpg",
+    "link": "https://www.camp.it/d/us/us/outdoor/product/3558",
+    "category": "Shibari"
+  },
+  {
+    "title": "Showa vol. 1",
+    "author": "Sugiura Norio",
+    "image": "/img/showa1-cover.jpg",
+    "link": "https://www.kingkoala.it/product/showa1/",
+    "category": "Books"
+  },
+  {
+    "title": "DURO magazine iss. 00",
+    "image": "https://static.wixstatic.com/media/b3d139_3cfe40d241b8471d84d7127a86bc41df~mv2.png",
+    "link": "https://www.kingkoala.it/product/duro0/",
+    "category": "Books"
+  },
+  {
+    "title": "BUTT magazine 37",
+    "image": "https://cdn.shopify.com/s/files/1/0658/0918/7043/files/Butt37-Cover-Shop.jpg",
+    "link": "https://buttmagazine.com/library/butt-37/",
+    "category": "Books"
+  },
+  {
+    "title": "The Beauty of Kinbaku",
+    "author": "Master \"K\"",
+    "image": "https://m.media-amazon.com/images/I/81Uirndsm7L.jpg",
+    "link": "http://www.thebeautyofkinbaku.com/buytestB.html",
+    "category": "Books"
+  },
+  {
+    "title": "Essence of Shibari",
+    "author": "Shin Nawakiri",
+    "image": "https://rezised-images.knhbt.cz/1920x1920/11314132.webp",
+    "link": "https://bookshop.org/p/books/essence-of-shibari-kinbaku-and-japanese-rope-bondage-shin-nawakari/8212b3c6c396b057",
+    "category": "Books"
+  },
+  {
+    "title": "Shibari Suspensions: A Step by Step Guide",
+    "author": "Gestalta",
+    "image": "https://images-us.bookshop.org/ingram/9780957627543.jpg",
+    "link": "https://bookshop.org/p/books/shibari-suspensions-a-step-by-step-guide-gestalta/075050b080d3a4f6",
+    "category": "Books"
+  },
+  {
+    "title": "Soaring & Exploring: Self-Suspension for Experienced Tiers & Fliers",
+    "author": "Shay Tiziano",
+    "image": "https://m.media-amazon.com/images/I/71ePfZZYmLL.jpg",
+    "link": "https://www.amazon.com/dp/B0DNKKD42T",
+    "category": "Books"
+  },
+  {
+    "title": "Chair Shibari",
+    "image": "https://static.wixstatic.com/media/9869c3_1ddf87a798c54efa8a5fedff3b6b497f~mv2.jpg",
+    "link": "https://www.chairshibari.com/product-page/chair-shibari-photo-book",
+    "category": "Books"
+  },
+  {
     "title": "Kernel Magazine, Issue 6: FEED",
     "image": "https://substack-post-media.s3.amazonaws.com/public/images/f6f9119c-50da-49a9-8d41-6255eef15a33_1681x2614.jpeg",
-    "description": "",
     "link": "https://joinreboot.org/p/kernel-season-is-here",
-    "price": "",
     "category": "Books"
+  },
+  {
+    "title": "APEC water reverse osmosis system",
+    "image": "https://www.apecwater.com/cdn/shop/files/ro-quick-90-main.jpg",
+    "link": "https://www.apecwater.com/products/ro-quick90-detail",
+    "category": "Other"
   }
 ]
