@@ -29,3 +29,4 @@ Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on noti
 - Add a photo album
 - maybe add a calendar of events where you can find me? *(is that opening me up to stalking lmao)*
 - fix CSS styling on this [more page](/more/)
+- make slideshow (with timeline) of concerts and or events I've been to
