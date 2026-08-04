@@ -85,7 +85,6 @@ const sortedPosts = [...posts].sort(
     .post-left {
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
       align-self: start;
     }
 
@@ -101,6 +100,7 @@ const sortedPosts = [...posts].sort(
       font-weight: 300;
       color: var(--text-muted);
       line-height: 1.4;
+      margin: 0.75rem 0;
     }
 
     .post-right {
@@ -137,7 +137,10 @@ const sortedPosts = [...posts].sort(
         padding-top: 2rem;
       }
 
-      .post-row { grid-template-columns: 1fr; }
+      .post-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
     }
   </style>
 
