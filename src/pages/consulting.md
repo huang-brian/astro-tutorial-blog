@@ -46,7 +46,7 @@ Learn how to use privacy tools and software to reduce internet tracking. Learn w
 ### Brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
 - I'll help you purchase a new car or get your car serviced without (mostly) being scammed.
-### Shibari session
+### Somatic Shibari session
 (groundwork only, no-suspension)
 
 
