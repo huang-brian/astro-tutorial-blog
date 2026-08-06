@@ -1,12 +1,23 @@
 ---
 // src/components/SiteTitle.astro
 // Site name and tagline. Used on all pages except BlogPost.
+
+import quotes from '../data/quotes.json';
+// Pick one quote for initial load (fallback)
+const initialQuote = quotes[Math.floor(Math.random() * quotes.length)];
 ---
 
 <div class="site-title-block">
   <h1>Brian Below</h1>
-  <p class="tagline">musings on life.</p>
+  <p class="tagline" id="tagline">{initialQuote}</p>
 </div>
+
+<script define:vars={{ quotes }}>
+  // This runs in the browser and picks a new random quote
+  const tagline = document.getElementById('tagline');
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  tagline.textContent = randomQuote;
+</script>
 
 <style>
   .site-title-block h1 {
