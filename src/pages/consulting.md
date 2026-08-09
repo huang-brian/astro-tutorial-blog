@@ -42,12 +42,14 @@ Learn how to use privacy tools and software to reduce internet tracking. Learn w
 
 ## Other services
 ### boyfriend for a day
-- I'll be your twink boyfriend for a day…. whatever you want 😉 (upon prior negotiation)
+- I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
 ### Brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
-- I'll help you purchase a new car or get your car serviced without (mostly) being scammed.
+- I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
 ### Somatic Shibari session
 (groundwork only, no-suspension)
 
-
-
+### Water filtration
+(barter or free)
+- Tired of paying for Brita filters? Get filtered water right from your tap. I'll help you purchase and install an undersink water filter for your kitchen, and you'll never refill a Brita pitcher ever again. 
+- Undersink water filtration systems range from $60-$300 and can be installed in less than an hour or a single afternoon, depending on complexity. Filter replacement intervals range from 6 months to 2 years.
