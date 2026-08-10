@@ -43,11 +43,11 @@ Learn how to:
 ## Other services
 ### boyfriend for a day
 - I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
-### Brother or boyfriend comes with you to the mechanic or car dealership
+### brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
 - I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
 ### Somatic Shibari session
-(groundwork only, no-suspension)
+for men, women, and queer people (groundwork only, no-suspension)
 
 ### Home water filtration system installation
 (barter or free)
