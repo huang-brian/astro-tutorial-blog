@@ -6,10 +6,6 @@ date: 2026-05-31
 
 ---
 
-# Consulting services
-
-[Consulting services](/consulting/)
-
 # Outdoor CV
 [Outdoor CV](/outdoor-cv/)
 
@@ -17,6 +13,9 @@ date: 2026-05-31
 
 Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
 
+# Wishlist
+
+[Wishlist](/wishlist/)
 
 # 2026 Articles
  [2026](/2026/)
