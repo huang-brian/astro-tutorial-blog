@@ -47,7 +47,7 @@ Learn how to:
 (avilable for free, barter, or skill trade)
 - I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
 ### Somatic Shibari session
-for men, women, and queer people (groundwork only, no-suspension)
+for men, women, and queer people (groundwork only, no suspension)
 
 ### Home water filtration system installation
 (barter or free)
