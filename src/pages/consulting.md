@@ -63,16 +63,16 @@ all without legalzoom's exboritant fees.
 When it comes to forming a legally recognized nonprofit, I believe you should either hire a competent lawyer ($$) or do it yourself (free). With a competent lawyer, you get someone whom you can actually talk to and get help from. Legalzoom packages up legal services as a product, rather than providing an ongoing relationship, which is what you get when you work with a lawyer. Legalzoom profits off of people's lack of DIY legal knowledge!! If you work with me, you get (free, unqualified) legal advice *and* an ongoing relationship with someone who can help you navigate the legalese of forming a nonprofit. I specialize in forming nonprofit corporations in California, but I may be able to assist in other US states.
 
 ### Somatic Shibari session
-for men, women, and queer people (groundwork only, no suspension)
+- for men, women, and queer people (groundwork only, no suspension)
 
 ### Grad photos
 (buy me dinner or barter)
 
-I'll take your grad photos for cheap (I need photos for my portfolio lol). Let me know what style(s) you're interested in!
+- I'll take your grad photos for cheap (I need photos for my portfolio lol). Let me know what style(s) you're interested in!
 
 ### boyfriend for a day
-I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
+- I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
 ### brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
 
-I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
+- I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
