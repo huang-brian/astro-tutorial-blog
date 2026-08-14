@@ -54,3 +54,16 @@ for men, women, and queer people (groundwork only, no suspension)
 
 - Tired of paying for Brita filters? Get filtered water right from your tap. I'll help you purchase and install an undersink water filter for your kitchen, and you'll never refill a Brita pitcher ever again. 
 - Undersink water filtration systems range from $60-$300 and can be installed in less than an hour or a single afternoon, depending on complexity. Filter replacement intervals range from 6 months to 2 years.
+
+### Form a nonprofit 501(c)(3) organization
+(buy me dinner or barter/skill trade)
+
+I hate legalzoom. Don't use them to form your nonprofit organization. I'll guide you through the process of filing the paperwork yourself: 
+- incorporating your organization
+- forming a Board of Directors
+- appointing officers
+- applying for IRS tax-exemption
+
+all without legalzoom's exboritant fees.
+
+When it comes to forming a legally recognized nonprofit, I believe you should either hire a competent lawyer ($$) or do it yourself (free). With a competent lawyer, you get someone whom you can actually talk to and get help from. Legalzoom packages up legal services as a product, rather than providing an ongoing relationship, which is what you get when you work with a lawyer. Legalzoom profits off of people's lack of DIY legal knowledge!! If you work with me, you get (free, unqualified) legal advice *and* an ongoing relationship with someone who can help you navigate the legalese of forming a nonprofit. I specialize in forming nonprofit corporations in California, but I may be able to assist in other US states.
