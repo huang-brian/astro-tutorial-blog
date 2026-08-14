@@ -2,9 +2,8 @@
 layout: ../layouts/ExtendedBase.astro
 title: "Consulting Services"
 description: "Consulting & professional services available for hire"
-date: 2026-07-31
+date: 2026-08-31
 
-draft: true
 ---
 
 # Consulting & Professional Services
@@ -17,6 +16,8 @@ Chat with me on signal @bri.98 or email hey@brianbelow.net to get started!
 Visiting China, Russia or another country with internet censorship? For $8 USD per month, I'll set up a custom VPN server to help you bypass China's Great Firewall or other Internet censorship.
 ### Digital security and privacy workshop
 Learn how to use privacy tools and software to reduce internet tracking. Learn what is and isn't effective for protecting your privacy. Protect yourself from digital surveillance and malicious state actors.
+### Use AI locally on your computer
+Want to use AI models but don't want to share your sensitive data with OpenAI or Anthropic? Learn how to install and run open-weight LLMs locally on your computer.
 
 ### General technology support
 - Create a VPN for your personal home network so you can bypass remote work travel restrictions.
@@ -63,6 +64,12 @@ When it comes to forming a legally recognized nonprofit, I believe you should ei
 
 ### Somatic Shibari session
 for men, women, and queer people (groundwork only, no suspension)
+
+### Grad photos
+(buy me dinner or barter)
+
+I'll take your grad photos for cheap (I need photos for my portfolio lol). Let me know what style(s) you're interested in!
+
 ### boyfriend for a day
 - I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
 ### brother or boyfriend comes with you to the mechanic or car dealership
