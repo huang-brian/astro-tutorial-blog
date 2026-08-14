@@ -11,7 +11,7 @@ const allPosts = await getCollection('blog', ({ data }) => {
 const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="2026 — Brian Below">
+<BaseLayout title="2026 — Brian Below" description="Articles from 2026">
   <style>
     .site-header {
       display: grid;
