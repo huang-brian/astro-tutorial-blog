@@ -43,7 +43,7 @@ Learn how to:
 ## Other services
 
 ### Home water filtration system installation
-(barter or free)
+(buy me dinner, barter or free)
 
 - Tired of paying for Brita filters? Get filtered water right from your tap. I'll help you purchase and install an undersink water filter for your kitchen, and you'll never refill a Brita pitcher ever again. 
 - Undersink water filtration systems range from $60-$300 and can be installed in less than an hour or a single afternoon, depending on complexity. Filter replacement intervals range from 6 months to 2 years.
