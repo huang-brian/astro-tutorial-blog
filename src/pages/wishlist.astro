@@ -144,7 +144,7 @@ const categories = [...new Set(wishlist.map((item) => item.category))];
                   {...(hasLink ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
                   <div class="wishlist-image">
-                    <img src={item.image} alt={item.title} loading="lazy" />
+                    <img src={item.image} alt={item.title} />
                   </div>
                   <h3>{item.title}</h3>
                   {isBook && item.author && (
