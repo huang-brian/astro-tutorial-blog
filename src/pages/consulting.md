@@ -71,7 +71,8 @@ for men, women, and queer people (groundwork only, no suspension)
 I'll take your grad photos for cheap (I need photos for my portfolio lol). Let me know what style(s) you're interested in!
 
 ### boyfriend for a day
-- I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
+I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
 ### brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
-- I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
+
+I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
