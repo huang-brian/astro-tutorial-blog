@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/ExtendedBase.astro
 title: "More"
-description: "More"
+description: "More links"
 date: 2026-05-31
 
 ---

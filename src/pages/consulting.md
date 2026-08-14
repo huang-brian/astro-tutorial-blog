@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/ExtendedBase.astro
-title: "Consulting services"
-description: ""
+title: "Consulting Services"
+description: "Consulting & professional services available for hire"
 date: 2026-07-31
 
 draft: true
