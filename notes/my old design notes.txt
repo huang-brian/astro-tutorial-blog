@@ -1,0 +1,30 @@
+use tailwind to style a site with Nanum Myeongjo font. the website's background in lightmode should be color EFE6EB and 380D25 in dark mode.
+
+help me design a static site that I can host on Github pages or Netlify. Use Nanum Myeongjo font. the website's background in lightmode should be color EFE6EB and 380D25 in dark mode. Attached is layout for desktop site. Site should be responsive for mobile screens and light/dark mode preferences. In the future, I want to implement no sign-in likes and comments for blog posts. I would also like to include subscribe to email newsletter feature. 
+
+Site should be easy to maintain. Should I use tailwind css?
+
+
+the site title "Brian Below" should only appear on the homepage.
+
+On other pages, should the page title be displayed left align with the content below? or should title be centered at the top of the page?
+
+create a separate layout for the homepage. the homepage layout should keep the homepage looking as is.
+
+then modify the default layout. the title in head should left align with the content in the page below
+
+
+----
+
+on the default layout, the page title is offset awkwardly to the right. the page title should appear vertically aligned with the content below. 
+
+reduce horizontal space that the navigation menu takes up. The position of main content shifts according to screen width. When main content moves, the page title match this behavior. The navigation bar should not move.
+
+When space permits, page title element should be at the same horizontal level as navigation bar. On smaller screens, page title can appear below the navigation menu.
+
+the page title should left align with left edge of content below. page title should remain on same horizontal block as the navigation menu when screen size permits. when page hits the mobile width breakpoint, page title appears below the navigation menu
+
+the position of main content shifts according to screen width. can you make page title match this behavior
+
+I only want this behavior to apply to the block containing page title, not the entire header. navigation menu should stay static on the left side of the page regardless of screen size
+
