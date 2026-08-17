@@ -153,15 +153,15 @@
     "category": "Kitchen"
   },
   {
-    "title": "Feather PRO webbing (with sewn ends)",
-    "image": "https://www.balancecommunity.com/cdn/shop/products/IMG_9071.jpg",
-    "link": "https://www.balancecommunity.com/products/feather-pro",
-    "category": "Shibari"
-  },
-  {
     "title": "Petzel Paw rigging plate (black)",
     "image": "https://www.petzl.com/sfc/servlet.shepherd/version/download/0685I000006FAOYQA4",
     "link": "https://www.petzl.com/US/en/Professional/Anchors/PAW",
+    "category": "Shibari"
+  },
+  {
+    "title": "Feather PRO webbing (with sewn ends)",
+    "image": "https://www.balancecommunity.com/cdn/shop/products/IMG_9071.jpg",
+    "link": "https://www.balancecommunity.com/products/feather-pro",
     "category": "Shibari"
   }
 ]
