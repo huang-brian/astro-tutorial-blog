@@ -63,7 +63,10 @@ all without legalzoom's exboritant fees.
 When it comes to forming a legally recognized nonprofit, I believe you should either hire a competent lawyer ($$) or do it yourself (free). With a competent lawyer, you get someone whom you can actually talk to and get help from. Legalzoom packages up legal services as a product, rather than providing an ongoing relationship, which is what you get when you work with a lawyer. Legalzoom profits off of people's lack of DIY legal knowledge!! If you work with me, you get (free, unqualified) legal advice *and* an ongoing relationship with someone who can help you navigate the legalese of forming a nonprofit. I specialize in forming nonprofit corporations in California, but I may be able to assist in other US states.
 
 ### Somatic Shibari session
-- for men, women, and queer people (groundwork only, no suspension)
+- for men, women, and queer people.
+
+### Shibari suspension performance
+- Showcase a shibari suspension performance at your next event, starting at $650. Performance by one rigger and one model. Your venue should have a suitable suspension point available, and we must be able to inspect the suspension point at least 2 days prior.
 
 ### Grad photos
 (buy me dinner or barter)
