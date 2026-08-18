@@ -11,17 +11,27 @@ export interface Props {
   title?: string;
   description?: string;
   showTitle?: boolean;
+  // .md pages using `layout: ../layouts/BaseLayout.astro` in their
+  // frontmatter don't pass title/description as direct props — Astro
+  // bundles the whole frontmatter object into the following instead.
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
 }
 
-const { title = "Brian Below", description, showTitle = true } = Astro.props;
+const { title, description, showTitle = true, frontmatter } = Astro.props;
+const resolvedTitle = title ?? frontmatter?.title;
+const resolvedDescription = description ?? frontmatter?.description;
+const pageTitle = resolvedTitle ? `${resolvedTitle} — Brian Below` : "Brian Below";
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <title>{pageTitle}</title>
+    {resolvedDescription && <meta name="description" content={resolvedDescription} />}
 
     <meta name="theme-color" content="#EFE6EB" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#380D25" media="(prefers-color-scheme: dark)" />
