@@ -29,8 +29,6 @@ Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on noti
 ### todo:
 - Add a photo album
 - maybe add a calendar of events where you can find me? *(is that opening me up to stalking? lmao)*
-- fix CSS styling on this [more page](/more/)
-- fix that ugly blue color on links
 - make slideshow (with timeline) of concerts and or events I've been to
 - add my reading list that perpetually keeps getting longer
 - choose a different hover effect besides saturation for my wishlist items
