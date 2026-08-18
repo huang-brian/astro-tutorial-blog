@@ -9,18 +9,16 @@ date: 2026-05-31
     h2 {
     font-size: 1.5rem;
     margin: 1.1em 0 0;
-    line-height: 1.1;
+    line-height: 1.2;
     }
 </style>
 
 ## [Outdoor CV](/outdoor-cv/)
 
+## [Wishlist](/wishlist/)
 
 ## Shibari 101 guide
-
 Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
-
-## [Wishlist](/wishlist/)
 
 ## [2026 Articles](/2026/)
 
