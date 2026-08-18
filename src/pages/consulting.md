@@ -5,6 +5,16 @@ description: "Consulting & professional services available for hire"
 date: 2026-08-31
 
 ---
+<style>
+  h1 { 
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  h3 {
+  font-weight: 600;
+}
+</style>
 
 # Consulting & Professional Services
 
@@ -12,6 +22,7 @@ Most services start at $45/hr or barter/skill trade unless otherwise specified.
 Chat with me on signal @bri.98 or email hey@brianbelow.net to get started!
 
 ## Technology consulting
+---
 ### Bypass internet censorship
 Visiting China, Russia or another country with internet censorship? For $8 USD per month, I'll set up a custom VPN server to help you bypass China's Great Firewall or other Internet censorship.
 ### Digital security and privacy workshop
@@ -27,6 +38,7 @@ Want to use AI models but don't want to share your sensitive data with OpenAI or
 - Create your own website (like this one!)
 
 ## Climbing workshops
+---
 ### Top rope anchors workshop
 Learn how to:
 - build a quad and other common anchors
@@ -42,7 +54,7 @@ Learn how to:
 - and more!
 
 ## Other services
-
+---
 ### Home water filtration system installation
 (buy me dinner, barter or free)
 
