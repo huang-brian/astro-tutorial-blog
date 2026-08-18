@@ -26,6 +26,8 @@ const categories = [...new Set(wishlist.map((item) => item.category))];
       border-bottom: 1px solid var(--rule);
       padding-bottom: 0.6rem;
       margin: 0.5rem 0 1.75rem;
+      /* text-shadow: 1px 1px 12px; */ 
+        /* no for now */
     }
 
     .wishlist-grid {
@@ -39,8 +41,13 @@ const categories = [...new Set(wishlist.map((item) => item.category))];
       color: var(--text);
     }
 
+    .wishlist-card:hover {
+      text-shadow: 2px 2px 22px;
+      transition: text-shadow 0.2s;
+    }
     .wishlist-card.has-link:hover .wishlist-image img {
-      filter: saturate(1.1);
+      /* filter: drop-shadow(2px 2px 50px); */
+        /* work on this */
       transition: filter 0.2s;
     }
 

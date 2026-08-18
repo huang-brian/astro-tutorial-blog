@@ -12,8 +12,14 @@ date: 2026-08-31
   }
 
   h3 {
-  font-weight: 600;
-}
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px){
+    h1 {
+        letter-spacing: 0;
+    }
+  }
 </style>
 
 # Consulting & Professional Services

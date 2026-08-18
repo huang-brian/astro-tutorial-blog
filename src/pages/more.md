@@ -7,7 +7,7 @@ date: 2026-05-31
 ---
 <style>
     h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: 1.1em 0 0;
     line-height: 1.1;
     }
