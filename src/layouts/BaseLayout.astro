@@ -23,7 +23,7 @@ export interface Props {
 const { title, description, showTitle = true, frontmatter } = Astro.props;
 const resolvedTitle = title ?? frontmatter?.title;
 const resolvedDescription = description ?? frontmatter?.description;
-const pageTitle = resolvedTitle ? `${resolvedTitle} — Brian Below` : "Brian Below";
+const pageTitle = resolvedTitle ? `${resolvedTitle} – Brian Below` : "Brian Below";
 ---
 
 <html lang="en">
