@@ -1,14 +1,18 @@
 ---
 // src/layouts/BaseLayout.astro
-// Root layout. Provides: favicon, fonts, design tokens, global styles, footer.
-// the footer lives here.
+// Root layout. Provides: favicon, fonts, design tokens, global styles, header, footer.
+// Header (Nav + optional SiteTitle) was absorbed from the old ExtendedBase.astro.
+
+import Nav from "../components/Nav.astro";
+import SiteTitle from "../components/SiteTitle.astro";
 
 export interface Props {
   title?: string;
   description?: string;
+  showTitle?: boolean;
 }
 
-const { title = "Brian Below", description } = Astro.props;
+const { title = "Brian Below", description, showTitle = true } = Astro.props;
 ---
 
 <html lang="en">
@@ -22,7 +26,6 @@ const { title = "Brian Below", description } = Astro.props;
     <meta name="theme-color" content="#380D25" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
 
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/egh3idp.css" />
@@ -72,11 +75,8 @@ const { title = "Brian Below", description } = Astro.props;
       }
 
       a:hover { opacity: 0.7; }
-
-      /* Footer links: no underline */
-      /* .site-footer a {
-        text-decoration: none;
-      } */
+      a:visited { color: inherit; }
+      a:active { color: inherit; }
 
       /* ── Buttons ─────────────────────────────────────────── */
       button,
@@ -96,6 +96,21 @@ const { title = "Brian Below", description } = Astro.props;
         max-width: var(--max-width);
         margin: 0 auto;
         padding: 0 var(--h-pad);
+      }
+
+      /* ── Site header (Nav + SiteTitle) ────────────────────
+         Rules taken from the old ExtendedBase.astro, now the
+         single source of truth for every page's header. */
+      .site-header {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        padding: 3rem 0 1rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-col {
+        padding-top: 0.2rem;
       }
 
       /* ── Footer ──────────────────────────────────────────── */
@@ -156,6 +171,12 @@ const { title = "Brian Below", description } = Astro.props;
       @media (max-width: 640px) {
         :root { --h-pad: 1.4rem; }
 
+        .site-header {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+          padding-top: 2rem;
+        }
+
         .site-footer {
           grid-template-columns: 1fr;
           gap: 1.5rem;
@@ -170,12 +191,19 @@ const { title = "Brian Below", description } = Astro.props;
   <body>
     <div class="page">
 
+      <header class="site-header">
+        <div class="nav-col">
+          <Nav />
+        </div>
+        {showTitle && <SiteTitle />}
+      </header>
+
       <slot />
 
       <footer class="site-footer">
         <div class="footer-left">
           <span class="name">Brian Below</span>
-          Say hi: <a style= "opacity: 0.8; text-decoration: none;" href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
+          Say hi: <a style="opacity: 0.8; text-decoration: none;" href="mailto:hey@brianbelow.net">hey@brianbelow.net</a>
         </div>
 
         <div class="footer-mid">

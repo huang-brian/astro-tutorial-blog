@@ -1,10 +1,9 @@
 ---
 // src/layouts/HomeLayout.astro
-// Extends BaseLayout. Two-column header with site title + tagline, then post list.
+// Extends BaseLayout. Header (Nav, SiteTitle, tagline) comes from BaseLayout.
+// This layout only owns the post-list section below the header.
 
 import BaseLayout from './BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import SiteTitle from '../components/SiteTitle.astro';
 
 export interface Props {
   posts?: {
@@ -30,17 +29,13 @@ const sortedPosts = [...posts].sort(
 
   <style>
     /* ── Header ──────────────────────────────────────────────── */
-    .site-header {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      padding: 3rem 0 0.5rem;
+    /* avoids duplicate horizontal border below header */
+    :global(.site-header) {
+      padding: 3rem 0 0.5rem !important;
+      border-bottom: 10px !important;
     }
 
-    .nav-col {
-      padding-top: 0.2rem;
-    }
-
+    
     /* ── Post list ───────────────────────────────────────────── */
     .posts {
       margin-top: 0.5rem;
@@ -131,25 +126,12 @@ const sortedPosts = [...posts].sort(
 
     /* ── Mobile ──────────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .site-header {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding-top: 2rem;
-      }
-
       .post-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
       }
     }
   </style>
-
-  <header class="site-header">
-    <div class="nav-col">
-      <Nav />
-    </div>
-    <SiteTitle />
-  </header>
 
   <section class="posts">
     {sortedPosts.map((post) => (
