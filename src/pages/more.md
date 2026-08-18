@@ -5,26 +5,28 @@ description: "More links, pages, and digital footprints"
 date: 2026-05-31
 
 ---
+<style>
+    h2 {
+    font-size: 2rem;
+    margin: 1.1em 0 0;
+    line-height: 1.1;
+    }
+</style>
 
-# Outdoor CV
-[Outdoor CV](/outdoor-cv/)
+## [Outdoor CV](/outdoor-cv/)
 
-# Shibari 101 guide
+
+## Shibari 101 guide
 
 Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on notion.
 
-# Wishlist
+## [Wishlist](/wishlist/)
 
-[Wishlist](/wishlist/)
+## [2026 Articles](/2026/)
 
-# 2026 Articles
- [2026](/2026/)
+## [avocado](/avocado/)
 
-# avocado
-
-[avocado](/avocado/)
-
-## todo:
+### todo:
 - Add a photo album
 - maybe add a calendar of events where you can find me? *(is that opening me up to stalking? lmao)*
 - fix CSS styling on this [more page](/more/)
