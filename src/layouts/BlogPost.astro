@@ -55,80 +55,15 @@ const formattedDate = date.toLocaleDateString('en-US', {
       display: block;
     }
 
-    /* ── Prose body ──────────────────────────────────────────── */
+    /* ── Prose body container ───────────────────────────────────
+       Typography rules (headings, links, lists, code, etc.) now
+       live in ../styles/global.css so every markdown-rendering
+       layout gets them consistently. Only the container box model
+       stays here since it's specific to blog post width. */
     .prose {
       max-width: 70ch;
       margin: 0 auto;
       padding-bottom: 3rem;
-    }
-
-    .prose :global(p)  { margin-bottom: 1em; }
-
-    .prose :global(h2) {
-      font-size: 1.45rem;
-      font-weight: 500;
-      margin: 2.2em 0 0.6em;
-      line-height: 1.25;
-    }
-
-    .prose :global(h3) {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin: 1.8em 0 0.5em;
-    }
-
-    .prose :global(blockquote) {
-      border-left: 2px solid var(--rule);
-      margin: 1.8em 0;
-      padding: 0.2em 0 0.2em 1.4em;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    .prose :global(code) {
-      font-size: 0.88em;
-      background: color-mix(in srgb, var(--rule) 30%, transparent);
-      padding: 0.1em 0.35em;
-    }
-
-    .prose :global(pre) {
-      background: color-mix(in srgb, var(--text) 10%, var(--bg));
-      border: 1px solid var(--rule);
-      padding: 1.1em 1.4em;
-      overflow-x: auto;
-      margin: 1.8em 0;
-      font-size: 0.88em;
-      line-height: 1.6;
-    }
-
-    .prose :global(pre code) {
-      background: none;
-      padding: 0;
-    }
-
-    /* Needs :global() to reach markdown-rendered anchor tags */
-    .prose :global(a) {
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-      text-decoration-color: var(--rule);
-      color: inherit;
-      transition: opacity 0.2s;
-    }
-
-    .prose :global(a:hover) { opacity: 0.7; }
-
-    .prose :global(ul),
-    .prose :global(ol) {
-      padding-left: 1.5em;
-      margin-bottom: 1.4em;
-    }
-
-    .prose :global(li)  { margin-bottom: 0.4em; }
-
-    .prose :global(hr) {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2.5em 0;
     }
 
     .prose :global(img) {

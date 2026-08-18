@@ -1,0 +1,99 @@
+/* src/styles/global.css
+   Unscoped, site-wide rules. Anything here reaches markdown content
+   rendered via <slot /> or <Content />, which scoped component
+   <style> blocks cannot — see BlogPost.astro discussion.
+
+   Layers:
+   1. Base element defaults — apply everywhere, any context.
+   2. .prose — markdown-body-specific spacing/rhythm. Only applies
+      inside elements with class="prose".
+
+   A more specific selector anywhere else (scoped or not) will still
+   win by normal CSS specificity/cascade rules.
+*/
+
+/* ── Links (site-wide) ───────────────────────────────────── */
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--rule);
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+a:hover { opacity: 0.7; }
+a:visited { color: inherit; }
+a:active { color: inherit; }
+
+/* ── Prose body (markdown content) ──────────────────────── */
+.prose p { margin-bottom: 1em; }
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin: 2.2em 0 0.6em;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  /* margin: 1.8em 0 0.5em; */
+    /* commented for wishlist h3 purposes */
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 1.8em 0;
+  padding: 0.2em 0 0.2em 1.4em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+code {
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--rule) 30%, transparent);
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background: color-mix(in srgb, var(--text) 10%, var(--bg));
+  border: 1px solid var(--rule);
+  padding: 1.1em 1.4em;
+  overflow-x: auto;
+  margin: 1.8em 0;
+  font-size: 0.88em;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+ul, ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.4em;
+}
+
+li { margin-bottom: 0.4em; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5em 0;
+}
+
+img {
+  /* max-width: 100%; */
+    /* don't wanna mess with this right now, not sure what it will affect */
+  display: block;
+}
