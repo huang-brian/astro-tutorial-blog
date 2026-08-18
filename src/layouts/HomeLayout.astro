@@ -25,17 +25,9 @@ const sortedPosts = [...posts].sort(
 );
 ---
 
-<BaseLayout title="Brian Below" description="musings on life, avocado, consulting services, and more.">
+<BaseLayout description="musings on life, avocado, consulting services, and more.">
 
-  <style>
-    /* ── Header ──────────────────────────────────────────────── */
-    /* avoids duplicate horizontal border below header */
-    :global(.site-header) {
-      padding: 3rem 0 0.5rem !important;
-      border-bottom: 10px !important;
-    }
-
-    
+  <style>    
     /* ── Post list ───────────────────────────────────────────── */
     .posts {
       margin-top: 0.5rem;
@@ -51,6 +43,9 @@ const sortedPosts = [...posts].sort(
       color: inherit;
       text-decoration: none;
       transition: opacity 0.2s;
+    }
+    .post-link + .post-link {
+      border-top: 1px solid var(--rule);
     }
 
     .post-link:hover {
@@ -136,7 +131,6 @@ const sortedPosts = [...posts].sort(
   <section class="posts">
     {sortedPosts.map((post) => (
       <>
-        <div class="divider" />
         <a class="post-link" href={`/${post.id.replace(/\.md$/, '')}/`}>
           <article class="post-row">
             <div class="post-left">

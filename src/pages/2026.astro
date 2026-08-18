@@ -9,7 +9,7 @@ const allPosts = await getCollection('blog', ({ data }) => {
 const sortedPosts = [...allPosts].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="2026 — Brian Below" description="Articles from 2026">
+<BaseLayout title="2026" description="Articles from 2026">
   <style>
     .content {
       padding-top: 1.5rem;
