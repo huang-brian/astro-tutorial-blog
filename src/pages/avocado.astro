@@ -1,13 +1,13 @@
 ---
 // src/pages/avocado.astro
-import ExtendedBase from "../layouts/ExtendedBase.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const images = Object.keys(import.meta.glob("/public/avocado/*.jpeg")).map(
   (path) => path.replace("/public", "")
 );
 ---
 
-<ExtendedBase title="Avocado" description="avocado???avocado.. avo,,, AVOBADOCADO">
+<BaseLayout title="Avocado" description="avocado???avocado.. avo,,, AVOBADOCADO">
   <img
     id="avo"
     src=""
@@ -15,7 +15,7 @@ const images = Object.keys(import.meta.glob("/public/avocado/*.jpeg")).map(
     style="cursor: pointer; max-width: 100%; display: block; margin-top: 2rem;"
     title="avocado"
   />
-</ExtendedBase>
+</BaseLayout>
 
 <script define:vars={{ images }}>
   const img = document.getElementById("avo");

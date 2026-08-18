@@ -4,9 +4,7 @@
 // [astro scopeed styles issue] .msg-name font weight is not showing up as bold, and .msg-time is not showing up as italic. are there any conflicting rules?
 // put the name field on top
 // src/pages/guestbook.astro
-import ExtendedBase from '../layouts/ExtendedBase.astro';
-import Nav from '../components/Nav.astro';
-import SiteTitle from '../components/SiteTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const REDIS_URL      = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const REDIS_READONLY = import.meta.env.PUBLIC_UPSTASH_REDIS_READONLY_TOKEN;
@@ -17,19 +15,8 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
 
 ---
 
-<ExtendedBase title="Guestbook" description="Leave a note or view comments from past visitors.">
+<BaseLayout title="Guestbook" description="Leave a note or view comments from past visitors.">
   <style is:global>
-    /* ── Page header ───────────────────────────────────────── */
-    .site-header {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      padding: 3rem 0 2rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .nav-col { padding-top: 0.2rem; }
-
     /* ── AIM window ────────────────────────────────────────── */
     .aim-window {
       margin-top: 2rem;
@@ -263,12 +250,6 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
 
     /* ── Mobile ────────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .site-header {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding-top: 2rem;
-      }
-
       .aim-messages { height: 320px; min-height: 0; }
       .aim-name { width: 6.5rem; }
     }
@@ -481,4 +462,4 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
     sendBtn.addEventListener("click", submit);
     loadEntries();
   </script>
-</ExtendedBase>
+</BaseLayout>

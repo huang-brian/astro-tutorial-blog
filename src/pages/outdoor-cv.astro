@@ -1,12 +1,12 @@
 ---
-import ExtendedBase from "../layouts/ExtendedBase.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import outdoorData from "../data/outdoor-cv.json";
 
 const title = "Outdoor CV";
 const description = "My climbing and outdoor adventure experience.";
 ---
 
-<ExtendedBase title={title} description={description}>
+<BaseLayout title={title} description={description}>
   <style>
     .outdoor-cv-container {
       padding: 1rem 0;
@@ -118,4 +118,4 @@ const description = "My climbing and outdoor adventure experience.";
       </div>
     ))}
   </div>
-</ExtendedBase>
+</BaseLayout>

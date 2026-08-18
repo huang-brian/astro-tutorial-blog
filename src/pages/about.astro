@@ -1,22 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import SiteTitle from '../components/SiteTitle.astro';
 ---
 
 <BaseLayout title="About — Brian Below" description="Idk I'm just making a website. All the cool kids are making substacks these days?">
   <style>
-    .site-header {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      padding: 3rem 0 0.5rem;
-    }
-
-    .nav-col {
-      padding-top: 0.2rem;
-    }
-
     .content {
       max-width: 70ch;
       margin: 0 auto;
@@ -65,24 +52,7 @@ import SiteTitle from '../components/SiteTitle.astro';
     .social-link span {
       font-size: 0.9rem;
     }
-
-    @media (max-width: 640px) {
-      .site-header {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding-top: 2rem;
-      }
-    }
   </style>
-
-  <header class="site-header" style="padding-bottom: 1rem; border-bottom: 1px solid var(--rule);">
-    <div class="nav-col">
-      <Nav />
-    </div>
-    <SiteTitle />
-  </header>
-
-
 
 <div class="content">
 	<p>

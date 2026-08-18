@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/ExtendedBase.astro
+layout: ../layouts/BaseLayout.astro
 title: "Next"
 description: "What's next for Brian"
 date: 2026-08-31

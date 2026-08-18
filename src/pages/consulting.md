@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/ExtendedBase.astro
+layout: ../layouts/BaseLayout.astro
 title: "Consulting Services"
 description: "Consulting & professional services available for hire"
 date: 2026-08-31
