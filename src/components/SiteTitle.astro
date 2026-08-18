@@ -8,7 +8,7 @@ const initialQuote = quotes[Math.floor(Math.random() * quotes.length)];
 ---
 
 <div class="site-title-block">
-  <h1>Brian Below</h1>
+  <div class="site-title">Brian Below</div>
   <p class="tagline" id="tagline">{initialQuote}</p>
 </div>
 
@@ -20,10 +20,10 @@ const initialQuote = quotes[Math.floor(Math.random() * quotes.length)];
 </script>
 
 <style>
-  .site-title-block h1 {
+  .site-title-block .site-title {
     margin: 0;
     font-size: 3rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.01em;
     line-height: 1;
     margin-bottom: 0.3rem;
@@ -35,6 +35,6 @@ const initialQuote = quotes[Math.floor(Math.random() * quotes.length)];
   }
 
   @media (max-width: 640px) {
-    .site-title-block h1 { font-size: 2.2rem; }
+    .site-title-block .site-title { font-size: 2.2rem; }
   }
 </style>
