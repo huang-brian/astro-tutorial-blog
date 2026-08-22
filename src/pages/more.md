@@ -30,3 +30,4 @@ Check out my [Shibari 101 guide](https://astra1.notion.site/shibari-101) on noti
 - make slideshow (with timeline) of concerts and or events I've been to
 - add my reading list that perpetually keeps getting longer
 - choose a different hover effect besides saturation for my wishlist items
+- add a travel page
