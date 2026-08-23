@@ -148,25 +148,17 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
     .aim-input-area {
       background: var(--bg);
       padding: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 0.5rem;
+      row-gap: 0.75rem;
       flex-shrink: 0;
     }
 
-    .aim-input-row {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-end;
-    }
-
-    .aim-name-row {
-      display: flex;
-      width: 100%;
-    }
-
     .aim-name {
-      width: 100%;
+      grid-column: 1;
+      grid-row: 1;
+      width: auto;
       background: transparent;
       border: 1px solid var(--rule);
       color: var(--text);
@@ -184,7 +176,8 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
     }
 
     .aim-textarea {
-      flex: 1;
+      grid-column: 1;
+      grid-row: 2;
       background: var(--bg);
       border: 1px solid var(--rule);
       color: var(--text);
@@ -208,7 +201,9 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
 
     /* "Send" button */
     .aim-send {
-      flex-shrink: 0;
+      grid-column: 2;
+      grid-row: 2;
+      align-self: end;
       padding: 0.5rem 1.25rem;
       border: 1px solid var(--rule);
       background: transparent;
@@ -220,6 +215,14 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
       transition: background 0.15s, color 0.15s, border-color 0.15s;
       white-space: nowrap;
       font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .aim-send-icon {
+      font-size: 0.85em;
+      opacity: 0.7;
     }
 
     .aim-send:hover {
@@ -233,8 +236,9 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
       cursor: not-allowed;
     }
 
-    /* Bottom meta row */
     .aim-meta-row {
+      grid-column: 1 / -1;
+      grid-row: 3;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -262,9 +266,24 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
     /* ── Mobile ────────────────────────────────────────────── */
     @media (max-width: 640px) {
       .aim-messages { height: 320px; min-height: 0; }
-      .aim-input-area { padding: 0.75rem; gap: 0.6rem; }
+      .aim-input-area {
+        padding: 0.75rem;
+        column-gap: 0.5rem;
+        row-gap: 0.6rem;
+        grid-template-columns: 1fr;
+      }
       .aim-name { font-size: 0.85rem; }
       .aim-textarea { font-size: 0.9rem; }
+      .aim-send {
+        grid-column: 1;
+        grid-row: 3;
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .aim-meta-row {
+        grid-column: 1;
+        grid-row: 4;
+      }
     }
   </style>
 
@@ -294,30 +313,28 @@ const POST_API_URL   = import.meta.env.VITE_POST_API_URL || "/.netlify/functions
 
     <!-- Input area -->
     <div class="aim-input-area">
-      <div class="aim-name-row">
-        <input
-          class="aim-name"
-          id="gb-name"
-          type="text"
-          placeholder="Name"
-          maxlength="60"
-          autocomplete="off"
-        />
+      <input
+        class="aim-name"
+        id="gb-name"
+        type="text"
+        placeholder="Name"
+        maxlength="60"
+        autocomplete="off"
+      />
+      <textarea
+        class="aim-textarea"
+        id="gb-message"
+        placeholder="leave a message…"
+        maxlength="500"
+        rows="1"
+      ></textarea>
+      <!-- Honeypot -->
+      <div class="hp-field" aria-hidden="true">
+        <input type="text" id="gb-website" name="website" tabindex="-1" autocomplete="off" />
       </div>
-      <div class="aim-input-row">
-        <textarea
-          class="aim-textarea"
-          id="gb-message"
-          placeholder="leave a message…"
-          maxlength="500"
-          rows="1"
-        ></textarea>
-        <!-- Honeypot -->
-        <div class="hp-field" aria-hidden="true">
-          <input type="text" id="gb-website" name="website" tabindex="-1" autocomplete="off" />
-        </div>
-        <button class="aim-send" id="send-btn" type="button">Send</button>
-      </div>
+      <button class="aim-send" id="send-btn" type="button">
+        Send <span class="aim-send-icon" aria-hidden="true">⏎</span>
+      </button>
       <div class="aim-meta-row">
         <div class="aim-status" id="form-status" role="status" aria-live="polite"></div>
         <div class="aim-chars" id="char-count">0 / 500</div>
