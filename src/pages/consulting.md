@@ -84,16 +84,17 @@ When it comes to forming a legally recognized nonprofit, I believe you should ei
 - for men, women, and queer people.
 
 ### Shibari suspension performance
-- Showcase a shibari suspension performance at your next event, starting at $650. Performance by one rigger and one model. Your venue should have a suitable suspension point available, and we must be able to inspect the suspension point at least 2 days prior.
+- Showcase a shibari suspension performance at your next event, starting at $600. Performance by one rigger and one model. Your venue should have a suitable suspension point available, and we must be able to inspect the suspension point at least 2 days prior.
 
 ### Grad photos
 (buy me dinner or barter)
 
 - I'll take your grad photos for cheap (I need photos for my portfolio lol). Let me know what style(s) you're interested in!
 
-### boyfriend for a day
-- I'll be your twink boyfriend for a day…. whatever you want 😉 (after prior negotiation)
 ### brother or boyfriend comes with you to the mechanic or car dealership
 (avilable for free, barter, or skill trade)
 
 - I'll help you get your car serviced or purchase a new car without (mostly) being scammed.
+
+### boyfriend for a day
+- I'll be your twink boyfriend for a day…. whatever you want 😉 (upon prior negotiation)
