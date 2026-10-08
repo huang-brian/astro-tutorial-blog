@@ -12,22 +12,37 @@ description: "Ninajirachi, Pedro Sampaio, and more"
 [![Ninajirachi - I love my computer cover art](https://f4.bcbits.com/img/a0649909828_10.jpg)](https://album.link/s/77CZUF57sYqgtznUe3OikQ)
 I wish I could see Ninajirachi at Coachella this year. Also recommended listening: Fuck my computer - Frost Children remix on [Bandcamp](https://ninajirachi.bandcamp.com/album/fuck-my-computer-frost-children-remix)
 
+Has this album changed your life yet? Because it changed mine. Ninajirachi is so hype. I was I could see her at Coachella. But alas, life has other priorities for me.
+
+The passion, the synthy sound, the behind each song is electric. I can only imagine what it's like to dance to this with a live crowd. I wish I could see her at Coachella this year. 
+
+"Fuck My Computer" is so catchy, so fun to dance to. It's so catchy, I've had this album on repeat for hours and hours. 
+
 ### Pedro Sampaio - *SEQUÊNCIAS #1*
 [![Pedro Sampaio - SEQUÊNCIAS #1 cover art](https://i.scdn.co/image/ab67616d0000b273dac6e6dd6c1fd136bb506b2c)](https://album.link/s/55dQeTyxDtzrixKmRhhG02)
+
+The first time I listened to brazilian funk I though it sounded obnoxious. I was repulsed. However, I have since been thoroughly converted. There is probably no better music to shake ass too, and every song on this album is an ass-shaker.
+
+Someone on twitter once said that Brazilians have 
 
 Literally every song on this album is a banger. But if I had to pick one, it would be Sequencia Cunt. They way they get that bass distortion on “Sequência Striptease” is incredible.
 
 ### Sevdaliza - *HEROINA*
 ![Sevdaliza - HEROINA cover art](https://i.scdn.co/image/ab67616d0000b2738764879d436c2b7dfe130396)
 
-This album literally changed my life. 
+This album literally changed my life. Funny, "Maria Magdalena" is actually how I discovered *SEQUÊNCIAS #1*, another album on this list. 
 
 ### Cinnamon Chasers - "love the way you ruin me" and “MissU”
 ![Cinnamon Chasers - "love the way you ruin me" cover art](https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e3/64/54/e36454fe-8090-50c2-7e41-b9b918821aab/cover.jpg/1200x630bb.jpg)
 
+I shared this song with a crush and she liked it. I wonder if she got the hint. 
+
 ### Wu Bai - "Last Dance"
 ![Wu Bai - "Last Dance" cover art](https://i.scdn.co/image/ab67616d0000b273a0477ab6afbb20d6732175c9)
+
+Jocelyn shared this with me.
 
 ### Balu Brigada - “Backseat” and “Politix”
 ![Balu Brigada - Portal cover art](https://i.scdn.co/image/ab67616d0000b273165118e03362a3a2e65dbc6c)
 
+I had these two songs on repeat while studying. Something about their momentum drives me forward. 
