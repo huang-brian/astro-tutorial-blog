@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/BaseLayout.astro
-title: "Next"
+title: "Now"
 description: "What's next for Brian"
 date: 2026-08-31
 
@@ -9,6 +9,7 @@ date: 2026-08-31
 # Now
 
 - finishing my Bachelor's in Computer science so I can become a software engineer
+    - I have no bitches at school, I'm here to grind
 - working with an Asian-American artist on her video engineering project
 - building website for FilipinUp
     - also helping FilipinUp form a 501(c)(3) organization
